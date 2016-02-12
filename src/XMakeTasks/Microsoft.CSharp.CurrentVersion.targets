@@ -358,7 +358,7 @@ using System.Reflection%3b
            instead the reference is always passed from the project. Also, for mscorlib.dll 
            we need to provide the explicit location in order to maintain the correct behaviour
       -->
-        <_ExplicitReference Include="$(FrameworkPathOverride)\mscorlib.dll" />
+        <_ExplicitReference Include="$(FrameworkPathOverride)\mscorlib.dll" Condition="Exists('$(FrameworkPathOverride)\mscorlib.dll')" />
     </ItemGroup>
 
     <Import Project="$(CustomAfterMicrosoftCSharpTargets)" Condition="'$(CustomAfterMicrosoftCSharpTargets)' != '' and Exists('$(CustomAfterMicrosoftCSharpTargets)')" />
