@@ -1,0 +1,12 @@
+#!/bin/sh
+COMMIT_ID=`git rev-parse HEAD`
+ZIP_PATH=${PWD}/mono_msbuild_${COMMIT_ID}.zip
+
+TMP_DIR=`mktemp -d`
+MSBUILD_OUT_DIR=${TMP_DIR}/msbuild
+
+cp -r bin/Debug-MONO/OSX_Deployment/ $MSBUILD_OUT_DIR
+cp msbuild-deploy.in $MSBUILD_OUT_DIR/msbuild
+(cd $TMP_DIR; zip -r ${ZIP_PATH} msbuild)
+
+echo "Generated ${ZIP_PATH}"
