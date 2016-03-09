@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <!-- This is to workaround an issue with a dependent assembly (Microsoft.Build.Tasks.CodeAnalysis.dll)
          copying its dependencies (which are in the GAC). -->
     <DoNotCopyLocalIfInGac>true</DoNotCopyLocalIfInGac>
@@ -158,7 +157,7 @@
     <PlatformTarget>$(RuntimeArchitecture)</PlatformTarget>
     <ImportGetNuGetPackageVersions Condition="'$(OS)' != 'Windows_NT'">false</ImportGetNuGetPackageVersions>
     <NuGetTargetMoniker Condition="'$(NetCoreBuild)' == 'true'">DNXCore,Version=v5.0</NuGetTargetMoniker>
-    <NuGetTargetMoniker Condition="'$(MonoBuild)' == 'true'">.NETFramework,Version=v4.5.1</NuGetTargetMoniker>
+    <NuGetTargetMoniker Condition="'$(MonoBuild)' == 'true'">.NETFramework,Version=v4.6</NuGetTargetMoniker>
     <NuGetTargetMoniker Condition="'$(NetCoreBuild)' != 'true' and '$(MonoBuild)' != 'true'">.NETFramework,Version=v4.6</NuGetTargetMoniker>
   </PropertyGroup>
 
@@ -179,8 +178,8 @@
   </PropertyGroup>
 
   <!-- .NET Core build support -->
-  <PropertyGroup Condition="'$(NetCoreBuild)' != 'true'">
-    <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == ''">v4.5.1</TargetFrameworkVersion>
+  <PropertyGroup Condition="'$(MonoBuild)' == 'true'">
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(NetCoreBuild)' == 'true'">
