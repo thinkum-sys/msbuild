@@ -170,6 +170,10 @@ case $host in
         ;;
 esac
 
+if [ "$target" = "Mono" ]; then
+    $RUNTIME_HOST --version
+fi
+
 MSBUILD_ARGS="$PROJECT_FILE_ARG /t:$TARGET_ARG /p:OS=$OS_ARG /p:Configuration=$CONFIGURATION /verbosity:minimal $EXTRA_ARGS /fl "' "'"/flp:v=diag;logfile=$LOG_PATH_ARG"'"'
 
 BUILD_COMMAND="$RUNTIME_HOST $RUNTIME_HOST_ARGS $MSBUILD_EXE $MSBUILD_ARGS"
