@@ -351,7 +351,8 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
   <ItemGroup Condition="'$(_DebugSymbolsProduced)' == 'true'">
     <_DebugSymbolsIntermediatePath Include="$(IntermediateOutputPath)$(TargetName).compile$(DebugFileExt)" Condition="'$(OutputType)' == 'winmdobj' and '@(_DebugSymbolsIntermediatePath)' == ''"/>
-    <_DebugSymbolsIntermediatePath Include="$(IntermediateOutputPath)$(TargetName)$(TargetExt)$(DebugFileExt)" Condition="'$(OutputType)' != 'winmdobj' and '@(_DebugSymbolsIntermediatePath)' == ''"/>
+    <_DebugSymbolsIntermediatePath Include="$(IntermediateOutputPath)$(TargetName)$(DebugFileExt)" Condition="'$(OutputType)' != 'winmdobj' and '@(_DebugSymbolsIntermediatePath)' == '' and '$(DebugFileExt)' == '.pdb'"/>
+    <_DebugSymbolsIntermediatePath Include="$(IntermediateOutputPath)$(TargetName)$(TargetExt)$(DebugFileExt)" Condition="'$(OutputType)' != 'winmdobj' and '@(_DebugSymbolsIntermediatePath)' == '' and '$(DebugFileExt)' != '.pdb'"/>
     <_DebugSymbolsOutputPath Include="@(_DebugSymbolsIntermediatePath->'$(OutDir)%(Filename)%(Extension)')" />
   </ItemGroup>
 

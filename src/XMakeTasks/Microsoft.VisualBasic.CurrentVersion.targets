@@ -161,7 +161,8 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     <ItemGroup Condition="'$(_DebugSymbolsProduced)' == 'true' and '$(PdbFile)' != ''">
         <_DebugSymbolsIntermediatePathTemporary Include="$(PdbFile)"/>
         <!-- Add any missing .pdb extension, as the compiler does -->
-        <_DebugSymbolsIntermediatePath Include="@(_DebugSymbolsIntermediatePathTemporary->'%(RootDir)%(Directory)%(Filename)$(DebugFileExt)')"/>
+        <_DebugSymbolsIntermediatePath Include="@(_DebugSymbolsIntermediatePathTemporary->'%(RootDir)%(Directory)%(Filename)$(DebugFileExt)')" Condition="'$(DebugFileExt)' == '.pdb'"/>
+        <_DebugSymbolsIntermediatePath Include="@(_DebugSymbolsIntermediatePathTemporary->'%(RootDir)%(Directory)%(Filename)%(Extension)$(DebugFileExt)')" Condition="'$(DebugFileExt)' != '.pdb'"/>
     </ItemGroup>
 
     <PropertyGroup>
