@@ -133,7 +133,7 @@ case $target in
     Mono)
         setMonoDir
         CONFIGURATION=Debug-MONO
-        EXTRA_ARGS="/p:CscToolExe=mcs /p:CscToolPath=$MONO_BIN_DIR"
+        EXTRA_ARGS="/p:CscToolExe=mcs /p:CscToolPath=$MONO_BIN_DIR /p:DebugFileExt=.mdb"
         RUNTIME_HOST_ARGS="--debug"
         ;;
     *)
