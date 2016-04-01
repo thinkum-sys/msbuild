@@ -1887,7 +1887,7 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests.OutOfProc
         ///  Non-existent StateFile yields message
         /// </summary>
         [Fact]
-        [Trait("Category", "mono-osx-failing")]
+        [PlatformSpecific(Xunit.PlatformID.Windows)]
         public void StateFileUnwritable()
         {
             GenerateResource t = Utilities.CreateTaskOutOfProc();
