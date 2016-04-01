@@ -161,7 +161,8 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     <ItemGroup Condition="'$(_DebugSymbolsProduced)' == 'true' and '$(PdbFile)' != ''">
         <_DebugSymbolsIntermediatePathTemporary Include="$(PdbFile)"/>
         <!-- Add any missing .pdb extension, as the compiler does -->
-        <_DebugSymbolsIntermediatePath Include="@(_DebugSymbolsIntermediatePathTemporary->'%(RootDir)%(Directory)%(Filename).pdb')"/>
+        <_DebugSymbolsIntermediatePath Include="@(_DebugSymbolsIntermediatePathTemporary->'%(RootDir)%(Directory)%(Filename)$(DebugFileExt)')" Condition="'$(DebugFileExt)' == '.pdb'"/>
+        <_DebugSymbolsIntermediatePath Include="@(_DebugSymbolsIntermediatePathTemporary->'%(RootDir)%(Directory)%(Filename)%(Extension)$(DebugFileExt)')" Condition="'$(DebugFileExt)' != '.pdb'"/>
     </ItemGroup>
 
     <PropertyGroup>
@@ -207,7 +208,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
         
         <PropertyGroup>
           <!-- If we are targeting winmdobj we want to specifically set the pdbFile property so that it does not collide with the output of winmdexp which we will run subsequently -->
-          <PdbFile Condition="'$(PdbFile)' == '' and '$(OutputType)' == 'winmdobj' and '$(DebugSymbols)' == 'true'">$(IntermediateOutputPath)$(TargetName).compile.pdb</PdbFile>
+          <PdbFile Condition="'$(PdbFile)' == '' and '$(OutputType)' == 'winmdobj' and '$(DebugSymbols)' == 'true'">$(IntermediateOutputPath)$(TargetName).compile$(DebugFileExt)</PdbFile>
         </PropertyGroup>
 
         <ItemGroup Condition="'$(TargetingClr2Framework)'=='true'">
