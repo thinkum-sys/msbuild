@@ -117,6 +117,9 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     This is the full intermediate Output Path, and is derived from BaseIntermediateOutputPath, if none specified
     (eg. obj\debug). If this property is overridden, then setting BaseIntermediateOutputPath has no effect.
     -->
+  <PropertyGroup>
+      <DebugFileExt Condition="'$(DebugFileExt)' == ''">.pdb</DebugFileExt>
+  </PropertyGroup>
 
   <PropertyGroup>
     <!-- Ensure any OutputPath has a trailing slash, so it can be concatenated -->
@@ -347,13 +350,13 @@ Copyright (C) Microsoft Corporation. All rights reserved.
   </ItemGroup>
 
   <ItemGroup Condition="'$(_DebugSymbolsProduced)' == 'true'">
-    <_DebugSymbolsIntermediatePath Include="$(IntermediateOutputPath)$(TargetName).compile.pdb" Condition="'$(OutputType)' == 'winmdobj' and '@(_DebugSymbolsIntermediatePath)' == ''"/>
-    <_DebugSymbolsIntermediatePath Include="$(IntermediateOutputPath)$(TargetName).pdb" Condition="'$(OutputType)' != 'winmdobj' and '@(_DebugSymbolsIntermediatePath)' == ''"/>
+    <_DebugSymbolsIntermediatePath Include="$(IntermediateOutputPath)$(TargetName).compile$(DebugFileExt)" Condition="'$(OutputType)' == 'winmdobj' and '@(_DebugSymbolsIntermediatePath)' == ''"/>
+    <_DebugSymbolsIntermediatePath Include="$(IntermediateOutputPath)$(TargetName)$(TargetExt)$(DebugFileExt)" Condition="'$(OutputType)' != 'winmdobj' and '@(_DebugSymbolsIntermediatePath)' == ''"/>
     <_DebugSymbolsOutputPath Include="@(_DebugSymbolsIntermediatePath->'$(OutDir)%(Filename)%(Extension)')" />
   </ItemGroup>
 
   <PropertyGroup Condition="'$(_DebugSymbolsProduced)' == 'true' and '$(OutputType)' == 'winmdobj'">
-    <WinMDExpOutputPdb Condition="'$(WinMDExpOutputPdb)' == ''">$(IntermediateOutputPath)$(TargetName).pdb</WinMDExpOutputPdb>
+    <WinMDExpOutputPdb Condition="'$(WinMDExpOutputPdb)' == ''">$(IntermediateOutputPath)$(TargetName)$(DebugFileExt)</WinMDExpOutputPdb>
     <_WinMDDebugSymbolsOutputPath>$([System.IO.Path]::Combine('$(OutDir)', $([System.IO.Path]::GetFileName('$(WinMDExpOutputPdb)'))))</_WinMDDebugSymbolsOutputPath>
   </PropertyGroup>
 
@@ -568,7 +571,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
         to resolved references.  Add new extensions here if you want to add new file types to consider.
         -->
     <AllowedReferenceRelatedFileExtensions Condition=" '$(AllowedReferenceRelatedFileExtensions)' == '' ">
-      .pdb;
+      $(DebugFileExt);
       .xml;
       .pri
     </AllowedReferenceRelatedFileExtensions>
@@ -5390,7 +5393,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
     <!-- This item represents dependent PDB's -->
     <ItemGroup>
-      <DebugSymbolsProjectOutputGroupDependency Include="@(_ReferenceRelatedPaths->'%(FullPath)')" Condition="'%(Extension)' == '.pdb'"/>
+      <DebugSymbolsProjectOutputGroupDependency Include="@(_ReferenceRelatedPaths->'%(FullPath)')" Condition="'%(Extension)' == '$(DebugFileExt)'"/>
     </ItemGroup>
 
   </Target>
