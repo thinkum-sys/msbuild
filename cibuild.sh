@@ -59,7 +59,7 @@ THIS_SCRIPT_PATH="`dirname \"$0\"`"
 PACKAGES_DIR="$THIS_SCRIPT_PATH/packages"
 TOOLS_DIR="$THIS_SCRIPT_PATH/Tools"
 #MSBUILD_DOWNLOAD_URL="https://github.com/Microsoft/msbuild/releases/download/mono-hosted-msbuild-v0.1/mono-msbuild.zip"
-MSBUILD_DOWNLOAD_URL="https://github.com/radical/msbuild/releases/download/v0.01/mono_msbuild_eac6c527f27e9c58b3d8da91edaaa6a2a1150f35.zip"
+MSBUILD_DOWNLOAD_URL="https://github.com/radical/msbuild/releases/download/v0.02/mono_msbuild-0.02.zip"
 MSBUILD_ZIP="$PACKAGES_DIR/msbuild.zip"
 HOME_DEFAULT="/tmp/msbuild-CI-home"
 
