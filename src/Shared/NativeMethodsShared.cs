@@ -535,7 +535,7 @@ namespace Microsoft.Build.Shared
         {
             get
             {
-                return IsUnix ? "Unix" : (IsOSX ? "OSX" : "Windows_NT");
+                return IsWindows ? "Windows_NT" : "Unix";
             }
         }
 
