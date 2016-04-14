@@ -46,6 +46,19 @@ Copyright (C) Microsoft Corporation. All rights reserved.
         <SynthesizeLinkMetadata Condition=" '$(SynthesizeLinkMetadata)' == '' and '$(HasSharedItems)' == 'true' ">true</SynthesizeLinkMetadata>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <!-- Select a default C# compiler here, if unspecified, instead of in the Csc task, so that we can also
+             decide on the debug extension to be used.
+             -->
+        <CscToolExe Condition="'$(CscToolExe)' == '' and '$(MSBuildRuntimeType)' != 'Mono'">csc.exe</CscToolExe>
+        <CscToolExe Condition="'$(CscToolExe)' == '' and '$(MSBuildRuntimeType)' == 'Mono'">mcs.exe</CscToolExe>
+        <UseSharedCompilation Condition="'$(UseSharedCompilation)' == '' and '$(MSBuildRuntimeType)' == 'Mono'">false</UseSharedCompilation>
+
+        <CscDebugFileExt Condition="'$(CscDebugFileExt)' == '' and ('$(CscToolExe)' == 'csc.exe' or '$(CscToolExe)' == 'csc2.exe')">.pdb</CscDebugFileExt>
+        <CscDebugFileExt Condition="'$(CscDebugFileExt)' == '' and ('$(CscToolExe)' == 'mcs' or '$(CscToolExe)' == 'mcs.exe')">.mdb</CscDebugFileExt>
+        <DebugFileExt Condition="'$(CscDebugFileExt)' != ''">$(CscDebugFileExt)</DebugFileExt>
+    </PropertyGroup>
+
     <ItemGroup>
         <PropertyPageSchema Include="$(CommonXamlResourcesDirectory)CSharp.ProjectItemsSchema.xaml;"/>
         <PropertyPageSchema Include="$(CommonXamlResourcesDirectory)CSharp.xaml;">

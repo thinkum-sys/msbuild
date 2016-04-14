@@ -96,6 +96,10 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     <TargetPlatformDisplayName Condition="'$(TargetPlatformDisplayName)' == ''">$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformSDKDisplayName($(TargetPlatformIdentifier), $(TargetPlatformVersion)))</TargetPlatformDisplayName>
   </PropertyGroup>
 
+  <PropertyGroup>
+      <DebugFileExt Condition="'$(DebugFileExt)' == ''">.pdb</DebugFileExt>
+  </PropertyGroup>
+
   <!--
     Several properties must be set in the main project file, before using this .TARGETS file.
     However, if the properties are not set, we pick some defaults.
