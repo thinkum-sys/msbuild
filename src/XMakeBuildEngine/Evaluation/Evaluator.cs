@@ -1352,7 +1352,14 @@ namespace Microsoft.Build.Evaluation
 #if RUNTIME_TYPE_NETCORE
             builtInProperties.Add(SetBuiltInProperty(ReservedPropertyNames.msbuildRuntimeType, "Core"));
 #else
-            builtInProperties.Add(SetBuiltInProperty(ReservedPropertyNames.msbuildRuntimeType, "Full"));
+            string runtimeType =
+#if MONO
+                                NativeMethodsShared.IsMono ? "Mono" : "Full";
+#else
+                                                            "Full";
+#endif
+            builtInProperties.Add(SetBuiltInProperty(ReservedPropertyNames.msbuildRuntimeType, runtimeType));
+
 #endif
 
             if (String.IsNullOrEmpty(_projectRootElement.FullPath))
