@@ -4,7 +4,7 @@ if [ $# -ne 1 ]; then
 	exit 1
 fi
 
-MSBUILD_VERSION=15.1
+MSBUILD_VERSION=14.1
 MONO_PREFIX=$1
 MSBUILD_OUT_DIR="bin/Debug-MONO/OSX_Deployment"
 MSBUILD_INSTALL_BIN_DIR="$MONO_PREFIX/lib/mono/msbuild/${MSBUILD_VERSION}/bin"
