@@ -354,14 +354,14 @@ Copyright (C) Microsoft Corporation. All rights reserved.
   </ItemGroup>
 
   <ItemGroup Condition="'$(_DebugSymbolsProduced)' == 'true'">
-    <_DebugSymbolsIntermediatePath Include="$(IntermediateOutputPath)$(TargetName).compile$(DebugFileExt)" Condition="'$(OutputType)' == 'winmdobj' and '@(_DebugSymbolsIntermediatePath)' == ''"/>
+    <_DebugSymbolsIntermediatePath Include="$(IntermediateOutputPath)$(TargetName).compile.pdb" Condition="'$(OutputType)' == 'winmdobj' and '@(_DebugSymbolsIntermediatePath)' == ''"/>
     <_DebugSymbolsIntermediatePath Include="$(IntermediateOutputPath)$(TargetName)$(DebugFileExt)" Condition="'$(OutputType)' != 'winmdobj' and '@(_DebugSymbolsIntermediatePath)' == '' and '$(DebugFileExt)' == '.pdb'"/>
     <_DebugSymbolsIntermediatePath Include="$(IntermediateOutputPath)$(TargetName)$(TargetExt)$(DebugFileExt)" Condition="'$(OutputType)' != 'winmdobj' and '@(_DebugSymbolsIntermediatePath)' == '' and '$(DebugFileExt)' != '.pdb'"/>
     <_DebugSymbolsOutputPath Include="@(_DebugSymbolsIntermediatePath->'$(OutDir)%(Filename)%(Extension)')" />
   </ItemGroup>
 
   <PropertyGroup Condition="'$(_DebugSymbolsProduced)' == 'true' and '$(OutputType)' == 'winmdobj'">
-    <WinMDExpOutputPdb Condition="'$(WinMDExpOutputPdb)' == ''">$(IntermediateOutputPath)$(TargetName)$(DebugFileExt)</WinMDExpOutputPdb>
+    <WinMDExpOutputPdb Condition="'$(WinMDExpOutputPdb)' == ''">$(IntermediateOutputPath)$(TargetName).pdb</WinMDExpOutputPdb>
     <_WinMDDebugSymbolsOutputPath>$([System.IO.Path]::Combine('$(OutDir)', $([System.IO.Path]::GetFileName('$(WinMDExpOutputPdb)'))))</_WinMDDebugSymbolsOutputPath>
   </PropertyGroup>
 
@@ -572,11 +572,28 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     </AllowedReferenceAssemblyFileExtensions>
 
     <!--
+        These are the extensions that reference resolution will consider when looking for debug files related
+        to resolved references, for .pdb files
+        -->
+    <AllowedReferenceRelatedDebugFileExtensions Condition="'$(DebugFileExt)' == '.pdb'">
+        .pdb
+    </AllowedReferenceRelatedDebugFileExtensions>
+
+    <!--
+        These are the extensions that reference resolution will consider when looking for debug files related
+        to resolved references, for .mdb files when using mono's compilers
+        -->
+    <AllowedReferenceRelatedDebugFileExtensions Condition="'$(DebugFileExt)' != '.pdb'">
+        .exe.mdb;
+        .dll.mdb
+    </AllowedReferenceRelatedDebugFileExtensions>
+
+    <!--
         These are the extensions that reference resolution will consider when looking for files related
         to resolved references.  Add new extensions here if you want to add new file types to consider.
         -->
-    <AllowedReferenceRelatedFileExtensions Condition=" '$(AllowedReferenceRelatedFileExtensions)' == '' ">
-      $(DebugFileExt);
+    <AllowedReferenceRelatedFileExtensions Condition=" '$(AllowedReferenceRelatedFileExtensions)' == ''">
+      $(AllowedReferenceRelatedDebugFileExtensions);
       .xml;
       .pri
     </AllowedReferenceRelatedFileExtensions>
