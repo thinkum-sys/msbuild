@@ -1,4 +1,2 @@
 #!/bin/sh
-ABSOLUTE_PATH=$(cd `dirname "${BASH_SOURCE[0]}"` && pwd)/`basename "${BASH_SOURCE[0]}"`
-MSBUILD_SRC_DIR=`dirname $ABSOLUTE_PATH`
-exec ${MSBUILD_SRC_DIR}/mono $MONO_OPTIONS ${MSBUILD_SRC_DIR}/../lib/mono/msbuild/14.1/bin/MSBuild.exe "$@"
+exec @bindir@/mono $MONO_OPTIONS @mono_instdir@/msbuild/14.1/bin/MSBuild.exe "$@"
