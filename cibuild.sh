@@ -200,6 +200,9 @@ BUILD_MSBUILD_ARGS="$PROJECT_FILE_ARG /t:$TARGET_ARG /p:OS=$OS_ARG /p:Configurat
 
 setHome
 
+echo "Clearing nuget caches"
+rm -Rf ~/.nuget ~/.local/share/NuGet
+
 restoreBuildTools
 
 echo
