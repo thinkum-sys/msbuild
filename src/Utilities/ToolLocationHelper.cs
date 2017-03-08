@@ -84,11 +84,29 @@ namespace Microsoft.Build.Utilities
         /// </summary>
         Version462 = 10,
 
-        // keep this up to date, this should always point to the last entry
         /// <summary>
-        /// the latest version available at the time of release
+        /// version 4.7
         /// </summary>
-        VersionLatest = Version462
+        Version47 = 11,
+
+        /// <summary>
+        /// The latest version available at the time of major release. This
+        /// value should not be updated in minor releases as it could be a
+        /// breaking change. Use 'Latest' if possible, but note the
+        /// compatibility implications.
+        /// </summary>
+        VersionLatest = Version462,
+
+        /// <summary>
+        /// Sentinel value for the latest version that this version of MSBuild is aware of. Similar
+        /// to VersionLatest except the compiled value in the calling application will not need to
+        /// change for the update in MSBuild to be used.
+        /// </summary>
+        /// <remarks>
+        /// This value was introduced in Visual Studio 15.1. It is incompatible with previous
+        /// versions of MSBuild.
+        /// </remarks>
+        Latest = 9999
     }
 
     /// <summary>
@@ -991,7 +1009,16 @@ namespace Microsoft.Build.Utilities
                         if (extensionSdk.SDKType == SDKType.Framework || extensionSdk.SDKType == SDKType.Platform)
                         {
                             // We don't want to attempt to gather ApiContract references if the framework isn't explicitly marked as Framework/Platform
-                            extensionSdkReferences = GetApiContractReferences(extensionSdk.ApiContracts, targetSdkPath);
+                            string platformKey = TargetPlatformSDK.GetSdkKey(targetSdkIdentifier, targetSdkVersion);
+                            PlatformManifest manifest;
+                            if (TryGetPlatformManifest(matchingSdk, platformKey, out manifest) && manifest != null && manifest.VersionedContent)
+                            {
+                                extensionSdkReferences = GetApiContractReferences(extensionSdk.ApiContracts, matchingSdk.Path, manifest.PlatformVersion);
+                            }
+                            else
+                            {
+                                extensionSdkReferences = GetApiContractReferences(extensionSdk.ApiContracts, matchingSdk.Path);
+                            }
                         }
                     }
                     else
@@ -1390,7 +1417,6 @@ namespace Microsoft.Build.Utilities
 
             return platforms;
         }
-
         /// <summary>
         /// Given an SDK Identifier and SDK version, return the latest installed platform.
         /// </summary>
@@ -1399,11 +1425,23 @@ namespace Microsoft.Build.Utilities
         /// <returns>The latest installed version for the given SDK</returns>
         public static string GetLatestSDKTargetPlatformVersion(string sdkIdentifier, string sdkVersion)
         {
+            return GetLatestSDKTargetPlatformVersion(sdkIdentifier, sdkVersion, null);
+        }
+
+        /// <summary>
+        /// Given an SDK Identifier and SDK version, return the latest installed platform.
+        /// </summary>
+        /// <param name="sdkIdentifier">SDK for which to find the latest installed platform</param>
+        /// <param name="sdkVersion">SDK version for which to find the latest installed platform</param>
+        /// <param name="sdkRoots">SDK Root folders</param>
+        /// <returns>The latest installed version for the given SDK</returns>
+        public static string GetLatestSDKTargetPlatformVersion(string sdkIdentifier, string sdkVersion, string[] sdkRoots)
+        {
             ErrorUtilities.VerifyThrowArgumentNull(sdkIdentifier, "sdkIdentifier");
             ErrorUtilities.VerifyThrowArgumentNull(sdkVersion, "sdkVersion");
 
             List<Version> availablePlatformVersions = new List<Version>();
-            IEnumerable<string> platformMonikerList = GetPlatformsForSDK(sdkIdentifier, new Version(sdkVersion), null, null);
+            IEnumerable<string> platformMonikerList = GetPlatformsForSDK(sdkIdentifier, new Version(sdkVersion), sdkRoots, null);
 
             Version platformVersion;
             foreach (string platformMoniker in platformMonikerList)
@@ -1636,7 +1674,7 @@ namespace Microsoft.Build.Utilities
         /// <returns>Path string.</returns>
         public static string GetPathToDotNetFrameworkSdk()
         {
-            return GetPathToDotNetFrameworkSdk(TargetDotNetFrameworkVersion.VersionLatest);
+            return GetPathToDotNetFrameworkSdk(TargetDotNetFrameworkVersion.Latest);
         }
 
         /// <summary>
@@ -1958,6 +1996,13 @@ namespace Microsoft.Build.Utilities
 
                 case TargetDotNetFrameworkVersion.Version462:
                     return FrameworkLocationHelper.dotNetFrameworkVersion462;
+
+                case TargetDotNetFrameworkVersion.Version47:
+                    return FrameworkLocationHelper.dotNetFrameworkVersion47;
+
+                case TargetDotNetFrameworkVersion.Latest:
+                    // Latest is a special value to indicate the highest version we know about.
+                    return FrameworkLocationHelper.dotNetFrameworkVersion47;
 
                 default:
                     ErrorUtilities.ThrowArgument("ToolLocationHelper.UnsupportedFrameworkVersion", version);
@@ -3260,7 +3305,7 @@ namespace Microsoft.Build.Utilities
         /// <returns>Path string.</returns>
         public static string GetPathToDotNetFrameworkSdkFile(string fileName)
         {
-            return GetPathToDotNetFrameworkSdkFile(fileName, TargetDotNetFrameworkVersion.VersionLatest);
+            return GetPathToDotNetFrameworkSdkFile(fileName, TargetDotNetFrameworkVersion.Latest);
         }
 
         /// <summary>

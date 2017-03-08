@@ -303,6 +303,7 @@ namespace Microsoft.Build.Utilities
     }
     public enum TargetDotNetFrameworkVersion
     {
+        Latest = 9999,
         Version11 = 0,
         Version20 = 1,
         Version30 = 2,
@@ -314,6 +315,7 @@ namespace Microsoft.Build.Utilities
         Version46 = 7,
         Version461 = 8,
         Version462 = 10,
+        Version47 = 11,
         VersionLatest = 10,
     }
     public partial class TargetPlatformSDK : System.IEquatable<Microsoft.Build.Utilities.TargetPlatformSDK>
@@ -434,6 +436,7 @@ namespace Microsoft.Build.Utilities
         public static string GetDotNetFrameworkSdkRootRegistryKey(Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version, Microsoft.Build.Utilities.VisualStudioVersion visualStudioVersion) { throw null; }
         public static string GetDotNetFrameworkVersionFolderPrefix(Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version) { throw null; }
         public static string GetLatestSDKTargetPlatformVersion(string sdkIdentifier, string sdkVersion) { throw null; }
+        public static string GetLatestSDKTargetPlatformVersion(string sdkIdentifier, string sdkVersion, string[] sdkRoots) { throw null; }
         public static string GetPathToBuildTools(string toolsVersion) { throw null; }
         public static string GetPathToBuildTools(string toolsVersion, Microsoft.Build.Utilities.DotNetFrameworkArchitecture architecture) { throw null; }
         public static string GetPathToBuildToolsFile(string fileName, string toolsVersion) { throw null; }
