@@ -1,6 +1,6 @@
 <!--
 ***********************************************************************************************
-Sdk.targets
+Xamarin.IoT.props
 
 WARNING:  DO NOT MODIFY this file unless you are knowledgeable about MSBuild and have
           created a backup copy.  Incorrect changes to this file will make it
@@ -10,6 +10,7 @@ Copyright (C) Microsoft Corp. All rights reserved.
 ***********************************************************************************************
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildSdksPath)\Microsoft.NET.Sdk\Sdk\Sdk.targets" Condition="Exists('$(MSBuildSdksPath)\Microsoft.NET.Sdk\Sdk\Sdk.targets')" />
-  <Import Project="$(MSBuildThisFileDirectory)..\build\Xamarin.IoT.targets" Condition="'$(OS)'=='Unix' AND Exists('$(MSBuildThisFileDirectory)..\build\Xamarin.IoT.targets')" />
+  <PropertyGroup>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+  </PropertyGroup>
 </Project>
