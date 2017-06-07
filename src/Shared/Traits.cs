@@ -30,6 +30,8 @@ namespace Microsoft.Build.Utilities
         /// </summary>
         public readonly bool AlwaysUseContentTimestamp = Environment.GetEnvironmentVariable("MSBUILDALWAYSCHECKCONTENTTIMESTAMP") == "1";
 
+        public readonly bool DoNotLogProjectImports = Environment.GetEnvironmentVariable("MSBUILDDONOTLOGIMPORTS") == "1";
+
         public readonly ProjectInstanceTranslationMode? ProjectInstanceTranslation = ComputeProjectInstanceTranslation();
 
         /// <summary>
@@ -56,7 +58,7 @@ namespace Microsoft.Build.Utilities
                 return ProjectInstanceTranslationMode.Partial;
             }
 
-            ErrorUtilities.ThrowInvalidOperation("Shared.InvalidEscapeHatchValue", mode);
+            ErrorUtilities.ThrowInternalError($"Invalid escape hatch for project instance translation: {mode}");
 
             return null;
         }
