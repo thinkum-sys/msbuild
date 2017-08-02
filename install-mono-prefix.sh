@@ -77,6 +77,10 @@ test -d ${DESTDIR}${XBUILD_DIR}/14.0/Imports && cp -R ${DESTDIR}${XBUILD_DIR}/14
 cp -R nuget-support/tv/* ${DESTDIR}${XBUILD_DIR}/$MSBUILD_TOOLSVERSION
 cp -R nuget-support/tasks-targets/* ${DESTDIR}${XBUILD_DIR}/
 
+#
+cp ${MSBUILD_OUT_DIR}/Mono.Build.Tasks.* ${DESTDIR}${XBUILD_DIR}
+cp ${MSBUILD_OUT_DIR}/deniedAssembliesList.txt ${DESTDIR}${XBUILD_DIR}
+
 # man page
 mkdir -p ${DESTDIR}${MONO_PREFIX}/share/man/man1
 cp mono/msbuild.1 ${DESTDIR}${MONO_PREFIX}/share/man/man1/
