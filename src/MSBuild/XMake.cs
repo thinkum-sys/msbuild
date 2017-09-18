@@ -1245,7 +1245,7 @@ namespace Microsoft.Build.CommandLine
                 toolsVersion,
                 targetsToBuild: new[] { MSBuildConstants.RestoreTargetName },
                 hostServices: null,
-                flags: BuildRequestDataFlags.ClearProjectRootElementCacheAfterBuild);
+                flags: BuildRequestDataFlags.ClearCachesAfterBuild);
 
             return ExecuteBuild(buildManager, restoreRequest);
         }
