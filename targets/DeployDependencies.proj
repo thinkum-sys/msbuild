@@ -96,6 +96,12 @@
       <Output TaskParameter="ResolvedCopyLocalItems" ItemName="ResolvedRuntimeFiles" />
     </PrereleaseResolveNuGetPackageAssets>
 
+    <ItemGroup>
+        <ResolvedRuntimeFiles
+            Remove="@(ResolvedRuntimeFiles)"
+            Condition="'%(ResolvedRuntimeFiles.NuGetPackageId)' == 'System.Runtime.InteropServices.RuntimeInformation' and '$(MonoBuild)' == 'true'" />
+    </ItemGroup>
+
     <!-- Copy the dependencies to both the deployment and the test directories -->
     <Copy SourceFiles="@(ResolvedRuntimeFiles)"
           DestinationFolder="@(RuntimeProjectJson->'%(DestinationFolder)')"
