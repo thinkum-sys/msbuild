@@ -405,7 +405,6 @@ namespace Microsoft.Build.UnitTests.ResolveAssemblyReference_Tests
 
             Assert.True(t.Execute(fileExists, directoryExists, getDirectories, getAssemblyName, getAssemblyMetadata, getRegistrySubKeyNames, getRegistrySubKeyDefaultValue, getLastWriteTime, getRuntimeVersion, openBaseKey, checkIfAssemblyIsInGac, isWinMDFile, readMachineTypeFromPEHeader));
 
-            Console.WriteLine (((MockEngine)t.BuildEngine).Log);
             Assert.True(string.Equals(t.DependsOnNETStandard, "true", StringComparison.OrdinalIgnoreCase)); //                 "Expected netstandard dependency found during build."
 
             // intelli build mode
