@@ -137,7 +137,7 @@ namespace Microsoft.Build.Engine.UnitTests.BackEnd
                 sdkResolverLoader.LoadResolvers(_loggingContext, ElementLocation.EmptyLocation);
             });
 
-            Assert.True(exception.Message.StartsWith($"The SDK resolver type \"{nameof(MockSdkResolverNoPublicConstructor)}\" failed to load."));
+            exception.Message.ShouldBe($"The SDK resolver type \"{nameof(MockSdkResolverNoPublicConstructor)}\" failed to load. No parameterless constructor defined for this object.");
 
             exception.InnerException.ShouldBeOfType<MissingMethodException>();
 
