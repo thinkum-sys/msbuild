@@ -1087,7 +1087,7 @@
             Nupkg reading helper methods
             </summary>
         </member>
-        <member name="M:NuGet.Packaging.PackageExtractor.InstallFromSourceAsync(NuGet.Packaging.Core.PackageIdentity,System.Func{System.IO.Stream,System.Threading.Tasks.Task},NuGet.Packaging.VersionFolderPathResolver,NuGet.Packaging.PackageExtractionContext,System.Threading.CancellationToken)">
+        <member name="M:NuGet.Packaging.PackageExtractor.InstallFromSourceAsync(NuGet.Packaging.Core.PackageIdentity,System.Func{System.IO.Stream,System.Threading.Tasks.Task},NuGet.Packaging.VersionFolderPathResolver,NuGet.Packaging.PackageExtractionContext,System.Threading.CancellationToken,System.Guid)">
             <summary>
             Uses a copy function to install a package to a global packages directory.
             </summary>
@@ -2104,6 +2104,9 @@
             Each byte[][] should be a byte[][3] of {tag (1 byte), length (1-5 bytes), payload (variable)}.
             </summary>
         </member>
+        <member name="T:NuGet.Packaging.Signing.DerEncoding.DerGeneralizedTime">
+            <remarks>This is public only to facilitate testing.</remarks>
+        </member>
         <member name="T:NuGet.Packaging.Signing.DerEncoding.DerSequenceReader">
             <summary>
             Reads data encoded via the Distinguished Encoding Rules for Abstract
@@ -2419,6 +2422,18 @@
             Gets the signature format version.
             </summary>
         </member>
+        <member name="T:NuGet.Packaging.Signing.Accuracy">
+            <remarks>This is public only to facilitate testing.</remarks>
+        </member>
+        <member name="T:NuGet.Packaging.Signing.Extension">
+            <remarks>This is public only to facilitate testing.</remarks>
+        </member>
+        <member name="T:NuGet.Packaging.Signing.Extensions">
+            <remarks>This is public only to facilitate testing.</remarks>
+        </member>
+        <member name="T:NuGet.Packaging.Signing.MessageImprint">
+            <remarks>This is public only to facilitate testing.</remarks>
+        </member>
         <member name="T:NuGet.Packaging.Signing.Rfc3161TimestampProvider">
             <summary>
             A provider for RFC 3161 timestamps
@@ -2541,6 +2556,9 @@
             Signing Specification for this timestamp request.
             </summary>
         </member>
+        <member name="T:NuGet.Packaging.Signing.TstInfo">
+            <remarks>This is public only to facilitate testing.</remarks>
+        </member>
         <member name="M:NuGet.Packaging.Signing.AttributeUtility.CreateCommitmentTypeIndication(NuGet.Packaging.Signing.SignatureType)">
             <summary>
             Create a CommitmentTypeIndication attribute.
@@ -2619,10 +2637,21 @@
             <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="attributes" /> is <c>null</c>.</exception>
             <exception cref="T:System.ArgumentException">Thrown if <paramref name="oid" /> is either <c>null</c> or an empty string.</exception>
         </member>
-        <member name="M:NuGet.Packaging.Signing.CertificateChainUtility.GetCertificateChainForSigning(System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Certificate2Collection,NuGet.Packaging.Signing.NuGetVerificationCertificateType)">
+        <member name="M:NuGet.Packaging.Signing.CertificateChainUtility.GetCertificateChain(System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Certificate2Collection,NuGet.Common.ILogger,NuGet.Packaging.Signing.CertificateType)">
             <summary>
             Create a list of certificates in chain order with the leaf first and root last.
             </summary>
+            <param name="certificate">The certificate for which a chain should be built.</param>
+            <param name="extraStore">A certificate store containing additional certificates necessary
+            for chain building.</param>
+            <param name="logger">A logger.</param>
+            <param name="certificateType">The certificate type.</param>
+            <remarks>This is intended to be used only during signing and timestamping operations,
+            not verification.</remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="certificate" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="extraStore" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="logger" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown if <paramref name="certificateType" /> is undefined.</exception>
         </member>
         <member name="M:NuGet.Packaging.Signing.CertificateChainUtility.GetCertificateListFromChain(System.Security.Cryptography.X509Certificates.X509Chain)">
             <summary>
@@ -2709,7 +2738,20 @@
             </summary>
             <param name="certificate">X509Certificate2 to be compute fingerprint</param>
             <param name="hashAlgorithm">Hash algorithm for fingerprint</param>
-            <returns></returns>
+            <returns>A byte array representing the certificate hash.</returns>
+        </member>
+        <member name="M:NuGet.Packaging.Signing.CertificateUtility.IsSelfIssued(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Determines if a certificate is self-issued.
+            </summary>
+            <remarks>Warning:  this method does not evaluate certificate trust, revocation status, or validity!
+            This method attempts to build a chain for the provided certificate, and although revocation status
+            checking is explicitly skipped, the underlying chain building engine may go online to fetch
+            additional information (e.g.:  the issuer's certificate).  This method is not a guaranteed offline
+            check.</remarks>
+            <param name="certificate">The certificate to check.</param>
+            <returns><c>true</c> if the certificate is self-issued; otherwise, <c>false</c>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="certificate" /> is <c>null</c>.</exception>
         </member>
         <member name="M:NuGet.Packaging.Signing.SignatureUtility.GetPrimarySignatureCertificates(NuGet.Packaging.Signing.Signature)">
             <summary>
@@ -2788,13 +2830,6 @@
             PackageVerificationResult
             </summary>
         </member>
-        <member name="M:NuGet.Packaging.Signing.SignatureTrustAndValidityVerificationProvider.IsTimestampValid(NuGet.Packaging.Signing.Timestamp,System.Byte[],System.Boolean,System.Collections.Generic.List{NuGet.Packaging.Signing.SignatureLog})">
-            <summary>
-            Validates a SignedCms object containing a timestamp response.
-            </summary>
-            <param name="timestampCms">SignedCms response from the timestamp authority.</param>
-            <param name="messageHash">Message hash that was signed and timestamped.</param>
-        </member>
         <member name="T:NuGet.Packaging.Signing.SignatureVerificationStatus">
             <summary>
             Represents the trust result of a signature.
@@ -2839,6 +2874,11 @@
         <member name="P:NuGet.Packaging.Signing.SignedPackageVerifierSettings.AllowUntrusted">
             <summary>
             Allow packages that are not trusted.
+            </summary>
+        </member>
+        <member name="P:NuGet.Packaging.Signing.SignedPackageVerifierSettings.AllowUnknownRevocation">
+            <summary>
+            Treat unknown revocation status as a warning instead of an error during verification.
             </summary>
         </member>
         <member name="P:NuGet.Packaging.Signing.SignedPackageVerifierSettings.AllowAll">
@@ -2900,6 +2940,11 @@
         <member name="P:NuGet.Packaging.Strings.CertificateChainBuildFailed">
             <summary>
               Looks up a localized string similar to A complete certificate chain could not be built for the signing certificate..
+            </summary>
+        </member>
+        <member name="P:NuGet.Packaging.Strings.CertificateChainValidationFailed">
+            <summary>
+              Looks up a localized string similar to Certificate chain validation failed..
             </summary>
         </member>
         <member name="P:NuGet.Packaging.Strings.CertUtilityCertificateHash">
@@ -3085,6 +3130,11 @@
         <member name="P:NuGet.Packaging.Strings.FallbackFolderNotFound">
             <summary>
               Looks up a localized string similar to Unable to find fallback package folder &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:NuGet.Packaging.Strings.InvalidArgument">
+            <summary>
+              Looks up a localized string similar to The argument is invalid..
             </summary>
         </member>
         <member name="P:NuGet.Packaging.Strings.InvalidAsn1">
@@ -3357,11 +3407,6 @@
               Looks up a localized string similar to String argument &apos;{0}&apos; cannot be null or empty.
             </summary>
         </member>
-        <member name="P:NuGet.Packaging.Strings.TimestampCertificateChainBuildFailure">
-            <summary>
-              Looks up a localized string similar to The timestamp service&apos;s certificate chain could not be built: {0}.
-            </summary>
-        </member>
         <member name="P:NuGet.Packaging.Strings.TimestampCertificateFailsPublicKeyLengthRequirement">
             <summary>
               Looks up a localized string similar to The timestamp certificate does not meet a minimum public key length requirement..
@@ -3390,6 +3435,11 @@
         <member name="P:NuGet.Packaging.Strings.TimestampInvalid">
             <summary>
               Looks up a localized string similar to The signature contains an invalid timestamp..
+            </summary>
+        </member>
+        <member name="P:NuGet.Packaging.Strings.TimestampMessageImprintUnsupportedHashAlgorithm">
+            <summary>
+              Looks up a localized string similar to The timestamp&apos;s message imprint uses an unsupported hash algorithm..
             </summary>
         </member>
         <member name="P:NuGet.Packaging.Strings.TimestampNoCertificate">

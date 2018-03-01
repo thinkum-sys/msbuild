@@ -2795,7 +2795,7 @@
         </member>
         <member name="P:NuGet.Commands.Strings.VerifyCommand_Failed">
             <summary>
-              Looks up a localized string similar to Could not verify package(s) signature..
+              Looks up a localized string similar to Package signature validation failed..
             </summary>
         </member>
         <member name="P:NuGet.Commands.Strings.VerifyCommand_FinishedWithErrors">
