@@ -356,7 +356,7 @@
             Indicates if this token will pro-actively raise callbacks. Callbacks are still guaranteed to fire, eventually.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Commands324547.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Commands324598.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two enumberables for equality, ordered according to the specified key and optional comparer. Handles null values gracefully.
             </summary>
@@ -368,41 +368,41 @@
       <param name="orderComparer">An optional comparer for comparing keys</param>
       <param name="sequenceComparer">An optional comparer for sequences</param>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Commands324547.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Commands324598.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sequence for equality, allowing either sequence to be null. If one is null, both have to be
             null for equality.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Commands324547.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Commands324598.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sets for equality, allowing either sequence to be null.
             If one is null, both have to be null for equality.
             </summary>
     </member>
-    <member name="T:NuGet.Shared.NuGet.Commands324547.HashCodeCombiner">
+    <member name="T:NuGet.Shared.NuGet.Commands324598.HashCodeCombiner">
       <summary>
             Hash code creator, based on the original NuGet hash code combiner/ASP hash code combiner implementations
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Commands324547.HashCodeCombiner.GetHashCode``2(``0,``1)">
+    <member name="M:NuGet.Shared.NuGet.Commands324598.HashCodeCombiner.GetHashCode``2(``0,``1)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Commands324547.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
+    <member name="M:NuGet.Shared.NuGet.Commands324598.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Commands324547.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
+    <member name="M:NuGet.Shared.NuGet.Commands324598.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
       <summary>
             Return the enumerable as a List of T, copying if required. Optimized for common case where it is an List of T.
             Avoid mutating the return value.
             </summary>
       <remarks>https://aspnetwebstack.codeplex.com/SourceControl/latest#src/Common/CollectionExtensions.cs</remarks>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Commands324547.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Commands324598.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Return the ISet as a HashSet of T, copying if required. Optimized for common case where it is a HashSet of T.
             Avoid mutating the return value.
@@ -3463,7 +3463,7 @@
             Folders that are expected to have .dll and .winmd files
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Common476986.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Common477122.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two enumberables for equality, ordered according to the specified key and optional comparer. Handles null values gracefully.
             </summary>
@@ -3475,41 +3475,41 @@
       <param name="orderComparer">An optional comparer for comparing keys</param>
       <param name="sequenceComparer">An optional comparer for sequences</param>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Common476986.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Common477122.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sequence for equality, allowing either sequence to be null. If one is null, both have to be
             null for equality.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Common476986.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Common477122.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sets for equality, allowing either sequence to be null.
             If one is null, both have to be null for equality.
             </summary>
     </member>
-    <member name="T:NuGet.Shared.NuGet.Common476986.HashCodeCombiner">
+    <member name="T:NuGet.Shared.NuGet.Common477122.HashCodeCombiner">
       <summary>
             Hash code creator, based on the original NuGet hash code combiner/ASP hash code combiner implementations
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Common476986.HashCodeCombiner.GetHashCode``2(``0,``1)">
+    <member name="M:NuGet.Shared.NuGet.Common477122.HashCodeCombiner.GetHashCode``2(``0,``1)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Common476986.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
+    <member name="M:NuGet.Shared.NuGet.Common477122.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Common476986.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
+    <member name="M:NuGet.Shared.NuGet.Common477122.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
       <summary>
             Return the enumerable as a List of T, copying if required. Optimized for common case where it is an List of T.
             Avoid mutating the return value.
             </summary>
       <remarks>https://aspnetwebstack.codeplex.com/SourceControl/latest#src/Common/CollectionExtensions.cs</remarks>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Common476986.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Common477122.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Return the ISet as a HashSet of T, copying if required. Optimized for common case where it is a HashSet of T.
             Avoid mutating the return value.
@@ -4790,7 +4790,7 @@
       <param name="path">Source path.</param>
       <returns>The absolute source path or the original source. Noops for non-file paths.</returns>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Configuration510187.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Configuration510544.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two enumberables for equality, ordered according to the specified key and optional comparer. Handles null values gracefully.
             </summary>
@@ -4802,41 +4802,41 @@
       <param name="orderComparer">An optional comparer for comparing keys</param>
       <param name="sequenceComparer">An optional comparer for sequences</param>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Configuration510187.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Configuration510544.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sequence for equality, allowing either sequence to be null. If one is null, both have to be
             null for equality.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Configuration510187.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Configuration510544.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sets for equality, allowing either sequence to be null.
             If one is null, both have to be null for equality.
             </summary>
     </member>
-    <member name="T:NuGet.Shared.NuGet.Configuration510187.HashCodeCombiner">
+    <member name="T:NuGet.Shared.NuGet.Configuration510544.HashCodeCombiner">
       <summary>
             Hash code creator, based on the original NuGet hash code combiner/ASP hash code combiner implementations
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Configuration510187.HashCodeCombiner.GetHashCode``2(``0,``1)">
+    <member name="M:NuGet.Shared.NuGet.Configuration510544.HashCodeCombiner.GetHashCode``2(``0,``1)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Configuration510187.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
+    <member name="M:NuGet.Shared.NuGet.Configuration510544.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Configuration510187.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
+    <member name="M:NuGet.Shared.NuGet.Configuration510544.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
       <summary>
             Return the enumerable as a List of T, copying if required. Optimized for common case where it is an List of T.
             Avoid mutating the return value.
             </summary>
       <remarks>https://aspnetwebstack.codeplex.com/SourceControl/latest#src/Common/CollectionExtensions.cs</remarks>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Configuration510187.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Configuration510544.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Return the ISet as a HashSet of T, copying if required. Optimized for common case where it is a HashSet of T.
             Avoid mutating the return value.
@@ -5498,7 +5498,7 @@
             Throw if a path is relative.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538594.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538951.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two enumberables for equality, ordered according to the specified key and optional comparer. Handles null values gracefully.
             </summary>
@@ -5510,41 +5510,41 @@
       <param name="orderComparer">An optional comparer for comparing keys</param>
       <param name="sequenceComparer">An optional comparer for sequences</param>
     </member>
-    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538594.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538951.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sequence for equality, allowing either sequence to be null. If one is null, both have to be
             null for equality.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538594.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538951.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sets for equality, allowing either sequence to be null.
             If one is null, both have to be null for equality.
             </summary>
     </member>
-    <member name="T:NuGet.Shared.NuGet.DependencyResolver.Core538594.HashCodeCombiner">
+    <member name="T:NuGet.Shared.NuGet.DependencyResolver.Core538951.HashCodeCombiner">
       <summary>
             Hash code creator, based on the original NuGet hash code combiner/ASP hash code combiner implementations
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538594.HashCodeCombiner.GetHashCode``2(``0,``1)">
+    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538951.HashCodeCombiner.GetHashCode``2(``0,``1)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538594.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
+    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538951.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538594.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
+    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538951.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
       <summary>
             Return the enumerable as a List of T, copying if required. Optimized for common case where it is an List of T.
             Avoid mutating the return value.
             </summary>
       <remarks>https://aspnetwebstack.codeplex.com/SourceControl/latest#src/Common/CollectionExtensions.cs</remarks>
     </member>
-    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538594.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.DependencyResolver.Core538951.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Return the ISet as a HashSet of T, copying if required. Optimized for common case where it is a HashSet of T.
             Avoid mutating the return value.
@@ -5838,7 +5838,7 @@
               Looks up a localized string similar to The feed '{0}' lists package '{1}' but multiple attempts to download the nupkg have failed. The feed is either invalid or required packages were removed while the current operation was in progress. Verify the package exists on the feed and try again..
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Frameworks560082.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Frameworks560422.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two enumberables for equality, ordered according to the specified key and optional comparer. Handles null values gracefully.
             </summary>
@@ -5850,41 +5850,41 @@
       <param name="orderComparer">An optional comparer for comparing keys</param>
       <param name="sequenceComparer">An optional comparer for sequences</param>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Frameworks560082.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Frameworks560422.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sequence for equality, allowing either sequence to be null. If one is null, both have to be
             null for equality.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Frameworks560082.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Frameworks560422.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sets for equality, allowing either sequence to be null.
             If one is null, both have to be null for equality.
             </summary>
     </member>
-    <member name="T:NuGet.Shared.NuGet.Frameworks560082.HashCodeCombiner">
+    <member name="T:NuGet.Shared.NuGet.Frameworks560422.HashCodeCombiner">
       <summary>
             Hash code creator, based on the original NuGet hash code combiner/ASP hash code combiner implementations
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Frameworks560082.HashCodeCombiner.GetHashCode``2(``0,``1)">
+    <member name="M:NuGet.Shared.NuGet.Frameworks560422.HashCodeCombiner.GetHashCode``2(``0,``1)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Frameworks560082.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
+    <member name="M:NuGet.Shared.NuGet.Frameworks560422.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Frameworks560082.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
+    <member name="M:NuGet.Shared.NuGet.Frameworks560422.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
       <summary>
             Return the enumerable as a List of T, copying if required. Optimized for common case where it is an List of T.
             Avoid mutating the return value.
             </summary>
       <remarks>https://aspnetwebstack.codeplex.com/SourceControl/latest#src/Common/CollectionExtensions.cs</remarks>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Frameworks560082.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Frameworks560422.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Return the ISet as a HashSet of T, copying if required. Optimized for common case where it is a HashSet of T.
             Avoid mutating the return value.
@@ -6693,7 +6693,7 @@
               Looks up a localized string similar to Invalid portable frameworks for '{0}'. A portable framework must have at least one framework in the profile..
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.LibraryModel596292.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.LibraryModel596632.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two enumberables for equality, ordered according to the specified key and optional comparer. Handles null values gracefully.
             </summary>
@@ -6705,41 +6705,41 @@
       <param name="orderComparer">An optional comparer for comparing keys</param>
       <param name="sequenceComparer">An optional comparer for sequences</param>
     </member>
-    <member name="M:NuGet.Shared.NuGet.LibraryModel596292.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.LibraryModel596632.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sequence for equality, allowing either sequence to be null. If one is null, both have to be
             null for equality.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.LibraryModel596292.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.LibraryModel596632.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sets for equality, allowing either sequence to be null.
             If one is null, both have to be null for equality.
             </summary>
     </member>
-    <member name="T:NuGet.Shared.NuGet.LibraryModel596292.HashCodeCombiner">
+    <member name="T:NuGet.Shared.NuGet.LibraryModel596632.HashCodeCombiner">
       <summary>
             Hash code creator, based on the original NuGet hash code combiner/ASP hash code combiner implementations
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.LibraryModel596292.HashCodeCombiner.GetHashCode``2(``0,``1)">
+    <member name="M:NuGet.Shared.NuGet.LibraryModel596632.HashCodeCombiner.GetHashCode``2(``0,``1)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.LibraryModel596292.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
+    <member name="M:NuGet.Shared.NuGet.LibraryModel596632.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.LibraryModel596292.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
+    <member name="M:NuGet.Shared.NuGet.LibraryModel596632.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
       <summary>
             Return the enumerable as a List of T, copying if required. Optimized for common case where it is an List of T.
             Avoid mutating the return value.
             </summary>
       <remarks>https://aspnetwebstack.codeplex.com/SourceControl/latest#src/Common/CollectionExtensions.cs</remarks>
     </member>
-    <member name="M:NuGet.Shared.NuGet.LibraryModel596292.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.LibraryModel596632.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Return the ISet as a HashSet of T, copying if required. Optimized for common case where it is a HashSet of T.
             Avoid mutating the return value.
@@ -6877,7 +6877,7 @@
             Indicates that the library could not be resolved
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging.Core608906.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Packaging.Core609246.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two enumberables for equality, ordered according to the specified key and optional comparer. Handles null values gracefully.
             </summary>
@@ -6889,41 +6889,41 @@
       <param name="orderComparer">An optional comparer for comparing keys</param>
       <param name="sequenceComparer">An optional comparer for sequences</param>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging.Core608906.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Packaging.Core609246.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sequence for equality, allowing either sequence to be null. If one is null, both have to be
             null for equality.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging.Core608906.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Packaging.Core609246.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sets for equality, allowing either sequence to be null.
             If one is null, both have to be null for equality.
             </summary>
     </member>
-    <member name="T:NuGet.Shared.NuGet.Packaging.Core608906.HashCodeCombiner">
+    <member name="T:NuGet.Shared.NuGet.Packaging.Core609246.HashCodeCombiner">
       <summary>
             Hash code creator, based on the original NuGet hash code combiner/ASP hash code combiner implementations
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging.Core608906.HashCodeCombiner.GetHashCode``2(``0,``1)">
+    <member name="M:NuGet.Shared.NuGet.Packaging.Core609246.HashCodeCombiner.GetHashCode``2(``0,``1)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging.Core608906.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
+    <member name="M:NuGet.Shared.NuGet.Packaging.Core609246.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging.Core608906.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
+    <member name="M:NuGet.Shared.NuGet.Packaging.Core609246.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
       <summary>
             Return the enumerable as a List of T, copying if required. Optimized for common case where it is an List of T.
             Avoid mutating the return value.
             </summary>
       <remarks>https://aspnetwebstack.codeplex.com/SourceControl/latest#src/Common/CollectionExtensions.cs</remarks>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging.Core608906.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Packaging.Core609246.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Return the ISet as a HashSet of T, copying if required. Optimized for common case where it is a HashSet of T.
             Avoid mutating the return value.
@@ -7612,7 +7612,7 @@
               Looks up a localized string similar to String argument '{0}' cannot be null or empty.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging624325.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Packaging624665.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two enumberables for equality, ordered according to the specified key and optional comparer. Handles null values gracefully.
             </summary>
@@ -7624,41 +7624,41 @@
       <param name="orderComparer">An optional comparer for comparing keys</param>
       <param name="sequenceComparer">An optional comparer for sequences</param>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging624325.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Packaging624665.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sequence for equality, allowing either sequence to be null. If one is null, both have to be
             null for equality.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging624325.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Packaging624665.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sets for equality, allowing either sequence to be null.
             If one is null, both have to be null for equality.
             </summary>
     </member>
-    <member name="T:NuGet.Shared.NuGet.Packaging624325.HashCodeCombiner">
+    <member name="T:NuGet.Shared.NuGet.Packaging624665.HashCodeCombiner">
       <summary>
             Hash code creator, based on the original NuGet hash code combiner/ASP hash code combiner implementations
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging624325.HashCodeCombiner.GetHashCode``2(``0,``1)">
+    <member name="M:NuGet.Shared.NuGet.Packaging624665.HashCodeCombiner.GetHashCode``2(``0,``1)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging624325.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
+    <member name="M:NuGet.Shared.NuGet.Packaging624665.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging624325.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
+    <member name="M:NuGet.Shared.NuGet.Packaging624665.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
       <summary>
             Return the enumerable as a List of T, copying if required. Optimized for common case where it is an List of T.
             Avoid mutating the return value.
             </summary>
       <remarks>https://aspnetwebstack.codeplex.com/SourceControl/latest#src/Common/CollectionExtensions.cs</remarks>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Packaging624325.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Packaging624665.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Return the ISet as a HashSet of T, copying if required. Optimized for common case where it is a HashSet of T.
             Avoid mutating the return value.
@@ -9183,7 +9183,7 @@
     </member>
     <member name="P:NuGet.Packaging.Strings.ErrorPackageSignatureInvalid">
       <summary>
-              Looks up a localized string similar to The package signature is invalid..
+              Looks up a localized string similar to The package signature is invalid or cannot be verified on this platform..
             </summary>
     </member>
     <member name="P:NuGet.Packaging.Strings.ErrorSignatureVerificationFailed">
@@ -9341,6 +9341,11 @@
               Looks up a localized string similar to The primary signature does not have a timestamp..
             </summary>
     </member>
+    <member name="P:NuGet.Packaging.Strings.RangeOutOfBoundsForArray">
+      <summary>
+              Looks up a localized string similar to Arguments {0} and {1} were out of bounds for the array..
+            </summary>
+    </member>
     <member name="P:NuGet.Packaging.Strings.SignatureContainsInvalidAttribute">
       <summary>
               Looks up a localized string similar to Package signature contains an invalid attribute: {0}.
@@ -9491,6 +9496,16 @@
               Looks up a localized string similar to The signing-certificate-v2 attribute uses an unsupported hash algorithm..
             </summary>
     </member>
+    <member name="P:NuGet.Packaging.Strings.StreamMustBeReadable">
+      <summary>
+              Looks up a localized string similar to The stream must be readable..
+            </summary>
+    </member>
+    <member name="P:NuGet.Packaging.Strings.StreamMustBeSeekable">
+      <summary>
+              Looks up a localized string similar to The stream must be seekable..
+            </summary>
+    </member>
     <member name="P:NuGet.Packaging.Strings.StringCannotBeNullOrEmpty">
       <summary>
               Looks up a localized string similar to String argument '{0}' cannot be null or empty.
@@ -9574,6 +9589,11 @@
     <member name="P:NuGet.Packaging.Strings.UnableToReadPackageHashInformation">
       <summary>
               Looks up a localized string similar to Package hash information could not be read from the package signature..
+            </summary>
+    </member>
+    <member name="P:NuGet.Packaging.Strings.UnexpectedPackageSignatureVerificationError">
+      <summary>
+              Looks up a localized string similar to An unexpected error occurred while verifying a package signature..
             </summary>
     </member>
     <member name="P:NuGet.Packaging.Strings.UnsupportedAsn1">
@@ -11480,7 +11500,7 @@
             Pattern used to identify content files
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.ProjectModel779059.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.ProjectModel781728.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two enumberables for equality, ordered according to the specified key and optional comparer. Handles null values gracefully.
             </summary>
@@ -11492,41 +11512,41 @@
       <param name="orderComparer">An optional comparer for comparing keys</param>
       <param name="sequenceComparer">An optional comparer for sequences</param>
     </member>
-    <member name="M:NuGet.Shared.NuGet.ProjectModel779059.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.ProjectModel781728.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sequence for equality, allowing either sequence to be null. If one is null, both have to be
             null for equality.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.ProjectModel779059.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.ProjectModel781728.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sets for equality, allowing either sequence to be null.
             If one is null, both have to be null for equality.
             </summary>
     </member>
-    <member name="T:NuGet.Shared.NuGet.ProjectModel779059.HashCodeCombiner">
+    <member name="T:NuGet.Shared.NuGet.ProjectModel781728.HashCodeCombiner">
       <summary>
             Hash code creator, based on the original NuGet hash code combiner/ASP hash code combiner implementations
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.ProjectModel779059.HashCodeCombiner.GetHashCode``2(``0,``1)">
+    <member name="M:NuGet.Shared.NuGet.ProjectModel781728.HashCodeCombiner.GetHashCode``2(``0,``1)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.ProjectModel779059.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
+    <member name="M:NuGet.Shared.NuGet.ProjectModel781728.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.ProjectModel779059.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
+    <member name="M:NuGet.Shared.NuGet.ProjectModel781728.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
       <summary>
             Return the enumerable as a List of T, copying if required. Optimized for common case where it is an List of T.
             Avoid mutating the return value.
             </summary>
       <remarks>https://aspnetwebstack.codeplex.com/SourceControl/latest#src/Common/CollectionExtensions.cs</remarks>
     </member>
-    <member name="M:NuGet.Shared.NuGet.ProjectModel779059.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.ProjectModel781728.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Return the ISet as a HashSet of T, copying if required. Optimized for common case where it is a HashSet of T.
             Avoid mutating the return value.
@@ -12270,7 +12290,7 @@
             Indicates if all warnings should be ignored.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Protocol835414.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Protocol838083.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two enumberables for equality, ordered according to the specified key and optional comparer. Handles null values gracefully.
             </summary>
@@ -12282,41 +12302,41 @@
       <param name="orderComparer">An optional comparer for comparing keys</param>
       <param name="sequenceComparer">An optional comparer for sequences</param>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Protocol835414.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Protocol838083.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sequence for equality, allowing either sequence to be null. If one is null, both have to be
             null for equality.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Protocol835414.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Protocol838083.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sets for equality, allowing either sequence to be null.
             If one is null, both have to be null for equality.
             </summary>
     </member>
-    <member name="T:NuGet.Shared.NuGet.Protocol835414.HashCodeCombiner">
+    <member name="T:NuGet.Shared.NuGet.Protocol838083.HashCodeCombiner">
       <summary>
             Hash code creator, based on the original NuGet hash code combiner/ASP hash code combiner implementations
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Protocol835414.HashCodeCombiner.GetHashCode``2(``0,``1)">
+    <member name="M:NuGet.Shared.NuGet.Protocol838083.HashCodeCombiner.GetHashCode``2(``0,``1)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Protocol835414.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
+    <member name="M:NuGet.Shared.NuGet.Protocol838083.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Protocol835414.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
+    <member name="M:NuGet.Shared.NuGet.Protocol838083.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
       <summary>
             Return the enumerable as a List of T, copying if required. Optimized for common case where it is an List of T.
             Avoid mutating the return value.
             </summary>
       <remarks>https://aspnetwebstack.codeplex.com/SourceControl/latest#src/Common/CollectionExtensions.cs</remarks>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Protocol835414.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Protocol838083.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Return the ISet as a HashSet of T, copying if required. Optimized for common case where it is a HashSet of T.
             Avoid mutating the return value.
@@ -19660,7 +19680,7 @@
             </summary>
       <param name="client">Http client</param>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Versioning1093593.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Versioning1096228.EqualityUtility.OrderedEquals``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two enumberables for equality, ordered according to the specified key and optional comparer. Handles null values gracefully.
             </summary>
@@ -19672,41 +19692,41 @@
       <param name="orderComparer">An optional comparer for comparing keys</param>
       <param name="sequenceComparer">An optional comparer for sequences</param>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Versioning1093593.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Versioning1096228.EqualityUtility.SequenceEqualWithNullCheck``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sequence for equality, allowing either sequence to be null. If one is null, both have to be
             null for equality.
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Versioning1093593.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Versioning1096228.EqualityUtility.SetEqualsWithNullCheck``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Compares two sets for equality, allowing either sequence to be null.
             If one is null, both have to be null for equality.
             </summary>
     </member>
-    <member name="T:NuGet.Shared.NuGet.Versioning1093593.HashCodeCombiner">
+    <member name="T:NuGet.Shared.NuGet.Versioning1096228.HashCodeCombiner">
       <summary>
             Hash code creator, based on the original NuGet hash code combiner/ASP hash code combiner implementations
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Versioning1093593.HashCodeCombiner.GetHashCode``2(``0,``1)">
+    <member name="M:NuGet.Shared.NuGet.Versioning1096228.HashCodeCombiner.GetHashCode``2(``0,``1)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Versioning1093593.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
+    <member name="M:NuGet.Shared.NuGet.Versioning1096228.HashCodeCombiner.GetHashCode``3(``0,``1,``2)">
       <summary>
             Create a unique hash code for the given set of items
             </summary>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Versioning1093593.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
+    <member name="M:NuGet.Shared.NuGet.Versioning1096228.Extensions.AsList``1(System.Collections.Generic.IEnumerable{``0})">
       <summary>
             Return the enumerable as a List of T, copying if required. Optimized for common case where it is an List of T.
             Avoid mutating the return value.
             </summary>
       <remarks>https://aspnetwebstack.codeplex.com/SourceControl/latest#src/Common/CollectionExtensions.cs</remarks>
     </member>
-    <member name="M:NuGet.Shared.NuGet.Versioning1093593.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
+    <member name="M:NuGet.Shared.NuGet.Versioning1096228.Extensions.AsHashSet``1(System.Collections.Generic.ISet{``0},System.Collections.Generic.IEqualityComparer{``0})">
       <summary>
             Return the ISet as a HashSet of T, copying if required. Optimized for common case where it is a HashSet of T.
             Avoid mutating the return value.

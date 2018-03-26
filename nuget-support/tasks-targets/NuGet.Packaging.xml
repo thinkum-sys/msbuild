@@ -3094,7 +3094,7 @@
         </member>
         <member name="P:NuGet.Packaging.Strings.ErrorPackageSignatureInvalid">
             <summary>
-              Looks up a localized string similar to The package signature is invalid..
+              Looks up a localized string similar to The package signature is invalid or cannot be verified on this platform..
             </summary>
         </member>
         <member name="P:NuGet.Packaging.Strings.ErrorSignatureVerificationFailed">
@@ -3252,6 +3252,11 @@
               Looks up a localized string similar to The primary signature does not have a timestamp..
             </summary>
         </member>
+        <member name="P:NuGet.Packaging.Strings.RangeOutOfBoundsForArray">
+            <summary>
+              Looks up a localized string similar to Arguments {0} and {1} were out of bounds for the array..
+            </summary>
+        </member>
         <member name="P:NuGet.Packaging.Strings.SignatureContainsInvalidAttribute">
             <summary>
               Looks up a localized string similar to Package signature contains an invalid attribute: {0}.
@@ -3402,6 +3407,16 @@
               Looks up a localized string similar to The signing-certificate-v2 attribute uses an unsupported hash algorithm..
             </summary>
         </member>
+        <member name="P:NuGet.Packaging.Strings.StreamMustBeReadable">
+            <summary>
+              Looks up a localized string similar to The stream must be readable..
+            </summary>
+        </member>
+        <member name="P:NuGet.Packaging.Strings.StreamMustBeSeekable">
+            <summary>
+              Looks up a localized string similar to The stream must be seekable..
+            </summary>
+        </member>
         <member name="P:NuGet.Packaging.Strings.StringCannotBeNullOrEmpty">
             <summary>
               Looks up a localized string similar to String argument &apos;{0}&apos; cannot be null or empty.
@@ -3485,6 +3500,11 @@
         <member name="P:NuGet.Packaging.Strings.UnableToReadPackageHashInformation">
             <summary>
               Looks up a localized string similar to Package hash information could not be read from the package signature..
+            </summary>
+        </member>
+        <member name="P:NuGet.Packaging.Strings.UnexpectedPackageSignatureVerificationError">
+            <summary>
+              Looks up a localized string similar to An unexpected error occurred while verifying a package signature..
             </summary>
         </member>
         <member name="P:NuGet.Packaging.Strings.UnsupportedAsn1">
