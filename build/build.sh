@@ -436,10 +436,9 @@ function Build {
 }
 
 function AssertNugetPackages {
-  packageCount=$(find $PackagesDir -type f | wc -l)
   if $pack || $dotnetBuildFromSource
   then
-
+    packageCount=$(find $PackagesDir -type f | wc -l)
     if [ $packageCount -ne 5 ]
     then
       ExitIfError 1 "Did not find 5 packages in $PackagesDir"
