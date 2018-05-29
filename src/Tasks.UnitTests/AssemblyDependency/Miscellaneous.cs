@@ -6474,6 +6474,21 @@ namespace Microsoft.Build.UnitTests.ResolveAssemblyReference_Tests
         }
 
         /// <summary>
+        /// Verify that the method will not crash if there are empty string array elements
+        /// </summary>
+        [Fact]
+        public void SubsetListFinderVerifyEmptyInSubsetsToSearchFor()
+        {
+            // Verify the program will not crash when an empty string is passed in
+            SubsetListFinder finder = new SubsetListFinder(new string[] { "Clent", string.Empty, "Bar" });
+            string[] returnArray = finder.GetSubsetListPathsFromDisk("FrameworkDirectory");
+            string[] returnArray2 = finder.GetSubsetListPathsFromDisk("FrameworkDirectory");
+
+            Assert.Equal(returnArray.Length, 0);
+            Assert.Equal(returnArray.Length, returnArray2.Length);
+        }
+
+        /// <summary>
         /// Verify when we have valid subset files and their names are in the subsets to search for that we correctly find the files
         /// </summary>
         [Fact]

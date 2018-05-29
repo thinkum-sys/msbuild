@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="RoslynTools.RepoToolset">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -306,6 +306,7 @@
       <_OurFiles Include="$(OutputPath)%(_TargetFrameworks.Identity)\Microsoft.VisualStudioVersion.v12.Common.props" TargetFramework="%(_TargetFrameworks.Identity)" />
       <_OurFiles Include="$(OutputPath)%(_TargetFrameworks.Identity)\Microsoft.VisualStudioVersion.v14.Common.props" TargetFramework="%(_TargetFrameworks.Identity)" />
       <_OurFiles Include="$(OutputPath)%(_TargetFrameworks.Identity)\SdkResolvers\**" Exclude="$(OutputPath)%(_TargetFrameworks.Identity)\SdkResolvers\**\*.resources.dll" TargetFramework="%(_TargetFrameworks.Identity)" Subdirectory="SdkResolvers\" />
+      <_OurFiles Include="$(OutputPath)%(_TargetFrameworks.Identity)\ref\**" TargetFramework="%(_TargetFrameworks.Identity)" Subdirectory="ref\" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="RoslynTools.RepoToolset">
   <PropertyGroup>
     <!-- Node reuse requires an API new to .NET Core 2.1 not yet available
          in .NETStandard. -->
@@ -11,8 +11,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DefineConstants>$(DefineConstants);BUILD_ENGINE</DefineConstants>
 
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <EnableDefaultItems>false</EnableDefaultItems>
 
     <!-- Generate API only for the more limited .NET Core/Standard flavor. -->
     <GenerateReferenceAssemblySources Condition="'$(TargetFramework)' != 'netcoreapp2.1'">true</GenerateReferenceAssemblySources>
@@ -241,6 +240,7 @@
     <Compile Include="BackEnd\Components\SdkResolution\CachingSdkResolverService.cs" />
     <Compile Include="BackEnd\Components\SdkResolution\SdkResolverContext.cs" />
     <Compile Include="BackEnd\Components\SdkResolution\SdkResolverLoader.cs" />
+    <Compile Include="BackEnd\Components\SdkResolution\SdkResolverManifest.cs" />
     <Compile Include="BackEnd\Components\SdkResolution\SdkResolverRequest.cs" />
     <Compile Include="BackEnd\Components\SdkResolution\MainNodeSdkResolverService.cs" />
     <Compile Include="BackEnd\Components\SdkResolution\SdkResolverService.cs" />

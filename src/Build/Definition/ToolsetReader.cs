@@ -208,9 +208,9 @@ namespace Microsoft.Build.Evaluation
                                     continue;
                                 }
 
-                                if (NativeMethodsShared.IsMono && float.TryParse(version, out float floatVersion) && floatVersion > 14.0)
+                                if (NativeMethodsShared.IsMono && Version.TryParse(version, out Version parsedVersion) && parsedVersion.Major > 14)
                                 {
-                                        continue;
+                                    continue;
                                 }
 
                                 // Create standard properties. On Mono they are well known
