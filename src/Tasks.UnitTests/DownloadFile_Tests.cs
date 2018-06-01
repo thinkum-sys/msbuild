@@ -185,7 +185,7 @@ namespace Microsoft.Build.Tasks.UnitTests
 
             downloadFile.Execute().ShouldBeFalse(() => _mockEngine.Log);
 
-            _mockEngine.Log.ShouldContain("Response status code does not indicate success: 404 (Not Found).");
+            _mockEngine.Log.ShouldContain("404 (Not Found)");
         }
 
         [Fact]
