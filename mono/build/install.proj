@@ -54,6 +54,7 @@
             <MSBuildFiles Remove="$(MSBuildBinSrcDir)\MSBuild.Bootstrap.*" />
             <MSBuildFiles Remove="$(MSBuildBinSrcDir)\System.Runtime.InteropServices.RuntimeInformation.dll" />
             <MSBuildFiles Remove="$(MSBuildBinSrcDir)\System.Reflection.Metadata.dll" />
+            <MSBuildFiles Remove="$(MSBuildBinSrcDir)\Microsoft.Build.Tasks.CodeAnalysis.dll" />
 
             <ResourceAssemblies Include="$(MSBuildBinSrcDir)\*\*.resources.dll" />
 
