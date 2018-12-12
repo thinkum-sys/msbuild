@@ -32,11 +32,6 @@ Copyright (c) .NET Foundation. All rights reserved.
   -->
   <Import Project="$(MSBuildThisFileDirectory)Microsoft.NET.TargetFrameworkInference.targets" />
 
-  <!-- For .NET Framework, reference core assemblies -->
-  <PropertyGroup>
-    <_TargetFrameworkVersionWithoutV>$(TargetFrameworkVersion.TrimStart('vV'))</_TargetFrameworkVersionWithoutV>
-  </PropertyGroup>
-
   <!--
     Use RuntimeIdentifier to determine PlatformTarget.
     Also, enforce that RuntimeIdentifier is always specified for .NETFramework executables.
@@ -91,6 +86,12 @@ Copyright (c) .NET Foundation. All rights reserved.
                            '$(RuntimeIdentifier)' != '' and
                            '$(_UsingDefaultRuntimeIdentifier)' != 'true'">$(OutputPath)$(RuntimeIdentifier)\$(PublishDirName)\</PublishDir>
     <PublishDir Condition="'$(PublishDir)' == ''">$(OutputPath)$(PublishDirName)\</PublishDir>
+  </PropertyGroup>
+
+  <!-- For .NET Framework, reference core assemblies -->
+
+  <PropertyGroup>
+    <_TargetFrameworkVersionWithoutV>$(TargetFrameworkVersion.TrimStart('vV'))</_TargetFrameworkVersionWithoutV>
   </PropertyGroup>
 
   <!--

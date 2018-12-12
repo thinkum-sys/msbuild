@@ -66,24 +66,24 @@ Copyright (c) .NET Foundation. All rights reserved.
 
       <!-- Latest patch version of .All Framework -->
       <PropertyGroup Condition="'$(LatestAspNetCoreAllPatchVersion)' == ''">
-        <!-- If LatestPatchVersionForAspNetCoreAll2_1 is explicitly set, use this for netcoreapp2.1 projects. -->
-        <LatestAspNetCoreAllPatchVersion Condition="'$(_TargetFrameworkVersionWithoutV)' == '2.1'">$(LatestPatchVersionForAspNetCoreAll2_1)</LatestAspNetCoreAllPatchVersion>
+        <!-- Placeholder for setting latest patch version using the bundled version from CLI for previous TFMs, this will not apply until 2.2 -->
+        <!-- <LatestAspNetCoreAllPatchVersion Condition="'$(_TargetFrameworkVersionWithoutV)' == '2.1'">$(LatestPatchVersionForAspNetCoreAll2_1)</LatestAspNetCoreAllPatchVersion> -->
 
         <!-- If targeting the same release that is bundled with the .NET Core SDK, use the bundled package version
             provided by Microsoft.NETCoreSdk.BundledVersions.props -->
-        <LatestAspNetCoreAllPatchVersion Condition="'$(LatestAspNetCoreAllPatchVersion)' == '' AND '$(_TargetFrameworkVersionWithoutV)' == '$(BundledAspNetCoreAllTargetFrameworkVersion)'">$(BundledAspNetCoreAllPackageVersion)</LatestAspNetCoreAllPatchVersion>
+        <LatestAspNetCoreAllPatchVersion Condition="'$(_TargetFrameworkVersionWithoutV)' == '$(BundledAspNetCoreAllTargetFrameworkVersion)'">$(BundledAspNetCoreAllPackageVersion)</LatestAspNetCoreAllPatchVersion>
         <!-- If not covered by the previous cases use the target framework version for the latest patch version -->
         <LatestAspNetCoreAllPatchVersion Condition="'$(LatestAspNetCoreAllPatchVersion)' == ''">$(_TargetFrameworkVersionWithoutV)</LatestAspNetCoreAllPatchVersion>
       </PropertyGroup>
 
       <!-- Latest patch version of .App Framework -->
       <PropertyGroup Condition="'$(LatestAspNetCoreAppPatchVersion)' == ''">
-        <!-- If LatestPatchVersionForAspNetCoreApp2_1 is explicitly set, use this for netcoreapp2.1 projects. -->
-        <LatestAspNetCoreAppPatchVersion Condition="'$(_TargetFrameworkVersionWithoutV)' == '2.1'">$(LatestPatchVersionForAspNetCoreApp2_1)</LatestAspNetCoreAppPatchVersion>
+        <!-- Placeholder for setting latest patch version using the bundled version from CLI for previous TFMs, this will not apply until 2.2 -->
+        <!-- <LatestAspNetCoreAppPatchVersion Condition="'$(_TargetFrameworkVersionWithoutV)' == '2.1'">$(LatestPatchVersionForAspNetCoreApp2_1)</LatestAspNetCoreAppPatchVersion> -->
 
         <!-- If targeting the same release that is bundled with the .NET Core SDK, use the bundled package version
             provided by Microsoft.NETCoreSdk.BundledVersions.props -->
-        <LatestAspNetCoreAppPatchVersion Condition="'$(LatestAspNetCoreAppPatchVersion)' == '' AND '$(_TargetFrameworkVersionWithoutV)' == '$(BundledAspNetCoreAppTargetFrameworkVersion)'">$(BundledAspNetCoreAppPackageVersion)</LatestAspNetCoreAppPatchVersion>
+        <LatestAspNetCoreAppPatchVersion Condition="'$(_TargetFrameworkVersionWithoutV)' == '$(BundledAspNetCoreAppTargetFrameworkVersion)'">$(BundledAspNetCoreAppPackageVersion)</LatestAspNetCoreAppPatchVersion>
         <!-- If not covered by the previous cases use the target framework version for the latest patch version -->
         <LatestAspNetCoreAppPatchVersion Condition="'$(LatestAspNetCoreAppPatchVersion)' == ''">$(_TargetFrameworkVersionWithoutV)</LatestAspNetCoreAppPatchVersion>
       </PropertyGroup>
@@ -124,6 +124,7 @@ Copyright (c) .NET Foundation. All rights reserved.
           Update="$(_AspNetCoreAllPackageName)"
           Condition="'@(_AspNetCoreAllReference->Count())' == '1' AND '@(_ExplicitAspNetCoreAllReference->Count())' == '0'">
           <Version>$(AspNetCoreAllRuntimeFrameworkVersion)</Version>
+          <IsImplicitlyDefined>true</IsImplicitlyDefined>
           <PrivateAssets>All</PrivateAssets>
           <Publish>true</Publish>
         </PackageReference>
@@ -131,6 +132,7 @@ Copyright (c) .NET Foundation. All rights reserved.
           Update="$(_AspNetCoreAppPackageName)"
           Condition="'@(_AspNetCoreAppReference->Count())' == '1' AND '@(_ExplicitAspNetCoreAppReference->Count())' == '0'">
           <Version>$(AspNetCoreAppRuntimeFrameworkVersion)</Version>
+          <IsImplicitlyDefined>true</IsImplicitlyDefined>
           <PrivateAssets>All</PrivateAssets>
           <Publish>true</Publish>
         </PackageReference>
@@ -148,18 +150,4 @@ Copyright (c) .NET Foundation. All rights reserved.
 
     </When>
   </Choose>
-
-  <Target Name="_WarnIfImplicitAspnetCoreAppPackageReferencesAreUsed"
-    Condition=" '$(SuppressImplicitAspNetCorePackageReferenceWarning)' != 'true' "
-    BeforeTargets="CollectPackageReferences">
-    <Warning
-      Text="The PackageReference to $(_AspNetCoreAllPackageName) is missing the Version attribute. Restore will default to using version $(AspNetCoreAllRuntimeFrameworkVersion). See https://aka.ms/aspnetcore/2.1/metapackage-refs for more details about this warning."
-      Condition="'@(_AspNetCoreAllReference->Count())' == '1' AND '@(_ExplicitAspNetCoreAllReference->Count())' == '0'"
-      File="$(MSBuildProjectFullPath)" />
-    <Warning
-      Text="The PackageReference to $(_AspNetCoreAppPackageName) is missing the Version attribute. Restore will default to using version $(AspNetCoreAppRuntimeFrameworkVersion). See https://aka.ms/aspnetcore/2.1/metapackage-refs for more details about this warning."
-      Condition="'@(_AspNetCoreAppReference->Count())' == '1' AND '@(_ExplicitAspNetCoreAppReference->Count())' == '0'"
-      File="$(MSBuildProjectFullPath)" />
-  </Target>
-
 </Project>
