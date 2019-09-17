@@ -1,6 +1,6 @@
 <Project>
     <PropertyGroup>
-        <MicrosoftNETSdkPackageVersion>3.0.100-rc2.19463.5</MicrosoftNETSdkPackageVersion>
+        <MicrosoftNETSdkPackageVersion>3.0.100-rc2.19467.1</MicrosoftNETSdkPackageVersion>
 
         <MicrosoftNETBuildExtensionsPackageVersion>$(MicrosoftNETSdkPackageVersion)</MicrosoftNETBuildExtensionsPackageVersion>
 
