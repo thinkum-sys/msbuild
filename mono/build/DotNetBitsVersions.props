@@ -1,6 +1,6 @@
 <Project>
     <PropertyGroup>
-        <MicrosoftNETSdkPackageVersion>3.0.100-rc2.19463.5</MicrosoftNETSdkPackageVersion>
+        <MicrosoftNETSdkPackageVersion>3.0.100-rc2.19467.3</MicrosoftNETSdkPackageVersion>
 
         <MicrosoftNETBuildExtensionsPackageVersion>$(MicrosoftNETSdkPackageVersion)</MicrosoftNETBuildExtensionsPackageVersion>
 
@@ -10,7 +10,7 @@
         <MicrosoftNETSdkPublishPackageVersion>$(MicrosoftNETSdkWebPackageVersion)</MicrosoftNETSdkPublishPackageVersion>
         <MicrosoftNETSdkWebProjectSystemPackageVersion>$(MicrosoftNETSdkWebPackageVersion)</MicrosoftNETSdkWebProjectSystemPackageVersion>
 
-        <NuGetBuildTasksPackageVersion>5.3.0-rtm.6192</NuGetBuildTasksPackageVersion>
+        <NuGetBuildTasksPackageVersion>5.3.0-rtm.6251</NuGetBuildTasksPackageVersion>
         <NuGetBuildTasksPackPackageVersion>$(NuGetBuildTasksPackageVersion)</NuGetBuildTasksPackPackageVersion>
 
         <MicrosoftDotNetMSBuildSdkResolverPackageVersion>3.0.100-rc2.19465.3</MicrosoftDotNetMSBuildSdkResolverPackageVersion>
