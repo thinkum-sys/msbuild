@@ -95,6 +95,7 @@ lib/mono/msbuild/Current/bin/Sdks/Microsoft.Docker.Sdk/Sdk/Sdk.props
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.Docker.Sdk/Sdk/Sdk.targets
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Publish/Sdk/Sdk.props
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Publish/Sdk/Sdk.targets
+lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Publish/packageIcon.png
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Publish/targets/ComputeTargets/Microsoft.NET.Sdk.Publish.ComputeFiles.targets
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Publish/targets/CopyTargets/Microsoft.NET.Sdk.Publish.CopyFiles.targets
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Publish/targets/DotNetCLIToolTargets/Microsoft.NET.Sdk.DotNetCLITool.targets
@@ -141,6 +142,7 @@ lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Razor/tasks/net46/System.Col
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Razor/tasks/net46/System.Reflection.Metadata.dll
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Web.ProjectSystem/Sdk/Sdk.props
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Web.ProjectSystem/Sdk/Sdk.targets
+lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Web.ProjectSystem/packageIcon.png
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Web.ProjectSystem/targets/Microsoft.NET.Sdk.Web.ProjectSystem.props
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Web.ProjectSystem/targets/Microsoft.NET.Sdk.Web.ProjectSystem.targets
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Web/Sdk/Sdk.props
@@ -149,6 +151,7 @@ lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Web/analyzers/cs/Microsoft.A
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Web/analyzers/cs/Microsoft.AspNetCore.Components.Analyzers.dll
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Web/analyzers/cs/Microsoft.AspNetCore.Mvc.Analyzers.dll
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Web/analyzers/cs/Microsoft.AspNetCore.Mvc.Api.Analyzers.dll
+lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk.Web/packageIcon.png
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk/Sdk/Sdk.AfterCommon.targets
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk/Sdk/Sdk.BeforeCommon.targets
 lib/mono/msbuild/Current/bin/Sdks/Microsoft.NET.Sdk/Sdk/Sdk.props
