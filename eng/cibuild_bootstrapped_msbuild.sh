@@ -79,7 +79,7 @@ if [ $host_type = "mono" ] ; then
   configuration="$configuration-MONO"
   extn_path="$mono_msbuild_dir/Extensions"
 
-  extra_properties=" /p:MSBuildExtensionsPath=$extn_path /p:MSBuildExtensionsPath32=$extn_path /p:MSBuildExtensionsPath64=$extn_path /p:DeterministicSourcePaths=false /fl /flp:v=diag"
+  extra_properties=" /p:MSBuildExtensionsPath=$extn_path /p:MSBuildExtensionsPath32=$extn_path /p:MSBuildExtensionsPath64=$extn_path /p:DeterministicSourcePaths=false /fl /flp:v=diag /m:1"
 fi
 
 if [[ $build_stage1 == true ]];
@@ -111,7 +111,7 @@ then
   export MonoTool=`which mono`
 
   extn_path="$bootstrapRoot/net472/MSBuild"
-  extra_properties=" /p:MSBuildExtensionsPath=$extn_path /p:MSBuildExtensionsPath32=$extn_path /p:MSBuildExtensionsPath64=$extn_path /p:DeterministicSourcePaths=false /fl /flp:v=diag"
+  extra_properties=" /p:MSBuildExtensionsPath=$extn_path /p:MSBuildExtensionsPath32=$extn_path /p:MSBuildExtensionsPath64=$extn_path /p:DeterministicSourcePaths=false /fl /flp:v=diag /m:1"
 else
   echo "Unsupported hostType ($host_type)"
   exit 1
