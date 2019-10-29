@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Dependencies>
   <ToolsetDependencies>
-    <Dependency Name="Microsoft.DotNet.Arcade.Sdk" Version="1.0.0-beta.19517.3">
+    <Dependency Name="Microsoft.DotNet.Arcade.Sdk" Version="1.0.0-beta.19502.6">
       <Uri>https://github.com/dotnet/arcade</Uri>
-      <Sha>a42a124635ce1a218309ecb31ec59d559cacb886</Sha>
+      <Sha>f4823f5c2c1f95e85bb595f533b17afc71924dd6</Sha>
     </Dependency>
   </ToolsetDependencies>
   <ProductDependencies>
@@ -13,11 +13,11 @@
     </Dependency>
     <Dependency Name="Microsoft.NET.Sdk.Razor" Version="3.1.0-preview2.19528.1">
       <Uri>https://github.com/aspnet/AspNetCore-Tooling</Uri>
-      <Sha>c034007a2d17e04decd619d875307392656ae94f</Sha>
+      <Sha>d273a0f4ccfd17a50b490492929bb3617ca73c32</Sha>
     </Dependency>
     <Dependency Name="Microsoft.NET.Sdk.Web" Version="3.1.100-preview2.19529.1">
       <Uri>https://github.com/aspnet/websdk</Uri>
-      <Sha>b79adac75df36d7e1adcacb43e09cea24b765aca</Sha>
+      <Sha>982cc536ce2b3560a13ba87c7406514fd16b825d</Sha>
     </Dependency>
     <Dependency Name="ILLink.Tasks" Version="0.1.6-prerelease.19380.1">
       <Uri>https://github.com/mono/linker</Uri>
@@ -33,7 +33,7 @@
     </Dependency>
     <Dependency Name="NuGet.Build.Tasks" Version="5.4.0-preview.3.6271">
       <Uri>https://github.com/NuGet/NuGet.Client</Uri>
-      <Sha>b75150f2f4127a77a166c9552845e86fb24a3282</Sha>
+      <Sha>c1f6915918b82c096bbd666bd9c18528f1f70630</Sha>
     </Dependency>
   </ProductDependencies>
 </Dependencies>
