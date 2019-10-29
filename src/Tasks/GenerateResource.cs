@@ -2,47 +2,43 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Resources;
-using System.Resources.Extensions;
-using System.Reflection;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-
-using Microsoft.Build.Framework;
-using Microsoft.Build.Shared;
-#if FEATURE_COM_INTEROP
-using Microsoft.Win32;
-#endif
 using System.CodeDom;
 using System.CodeDom.Compiler;
-using System.Xml;
-using System.Runtime.InteropServices;
-using System.Configuration;
-using System.Security;
+using System.Collections;
+using System.Collections.Generic;
 #if FEATURE_RESX_RESOURCE_READER
 using System.ComponentModel.Design;
 #endif
+using System.Configuration;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Resources;
+using System.Resources.Extensions;
+using System.Reflection;
+using System.Runtime.InteropServices;
 #if FEATURE_APPDOMAIN
 using System.Runtime.Remoting;
 #endif
-
-#if (!STANDALONEBUILD)
-using Microsoft.Internal.Performance;
-#endif
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Versioning;
-
-using Microsoft.Build.Utilities;
+using System.Security;
+using System.Text;
+using System.Xml;
 using System.Xml.Linq;
+
+using Microsoft.Build.Eventing;
+using Microsoft.Build.Framework;
+using Microsoft.Build.Shared;
 using Microsoft.Build.Shared.FileSystem;
 using Microsoft.Build.Tasks.ResourceHandling;
+using Microsoft.Build.Utilities;
+#if FEATURE_COM_INTEROP
+using Microsoft.Win32;
+#endif
 
 namespace Microsoft.Build.Tasks
 {
@@ -668,9 +664,7 @@ namespace Microsoft.Build.Tasks
         public override bool Execute()
         {
             bool outOfProcExecutionSucceeded = true;
-#if (!STANDALONEBUILD)
-            using (new CodeMarkerStartEnd(CodeMarkerEvent.perfMSBuildGenerateResourceBegin, CodeMarkerEvent.perfMSBuildGenerateResourceEnd))
-#endif
+            MSBuildEventSource.Log.GenerateResourceOverallStart();
             {
                 // If we're extracting ResW files from assemblies (instead of building resources),
                 // our Sources can contain PDB's, pictures, and other non-DLL's.  Prune that list.
@@ -922,6 +916,8 @@ namespace Microsoft.Build.Tasks
 
                 RecordFilesWritten();
             }
+
+            MSBuildEventSource.Log.GenerateResourceOverallStop();
 
             return !Log.HasLoggedErrors && outOfProcExecutionSucceeded;
         }
@@ -2603,6 +2599,12 @@ namespace Microsoft.Build.Tasks
             {
                 ReadResources(inFile, _useSourcePath, outFileOrDir);
             }
+            catch (InputFormatNotSupportedException)
+            {
+                _logger.LogErrorWithCodeFromResources(null, FileUtilities.GetFullPathNoThrow(inFile), 0, 0, 0, 0,
+                                                      "GenerateResource.CoreSupportsLimitedScenarios");
+                return false;
+            }
             catch (MSBuildResXException msbuildResXException)
             {
                 _logger.LogErrorWithCodeFromResources(null, FileUtilities.GetFullPathNoThrow(inFile), 0, 0, 0, 0,
@@ -2988,7 +2990,7 @@ namespace Microsoft.Build.Tasks
 #if FEATURE_ASSEMBLY_LOADFROM
                 ReadAssemblyResources(filename, outFileOrDir);
 #else
-                _logger.LogError("Reading resources from Assembly not supported on .NET Core MSBuild");
+                throw new InputFormatNotSupportedException("Reading resources from Assembly not supported on .NET Core MSBuild");
 #endif
             }
             else
@@ -3046,10 +3048,10 @@ namespace Microsoft.Build.Tasks
                     case Format.Binary:
 #if FEATURE_RESX_RESOURCE_READER
                         ReadResources(reader, new ResourceReader(filename), filename); // closes reader for us
-#else
-                        _logger.LogError("ResGen.exe not supported on .NET Core MSBuild");
-#endif
                         break;
+#else
+                        throw new InputFormatNotSupportedException("Reading resources from binary .resources not supported on .NET Core MSBuild");
+#endif
 
                     default:
                         // We should never get here, we've already checked the format
@@ -3387,8 +3389,13 @@ namespace Microsoft.Build.Tasks
 
                 PopulateAssemblyNames();
 
-                foreach (var assemblyName in _assemblyNames)
+                foreach (AssemblyNameExtension assemblyName in _assemblyNames)
                 {
+                    if (assemblyName == null)
+                    {
+                        continue;
+                    }
+
                     if (string.Equals(assemblyName.Name, "System.Resources.Extensions", StringComparison.OrdinalIgnoreCase))
                     {
                         _haveSystemResourcesExtensionsReference = true;
@@ -3761,14 +3768,16 @@ namespace Microsoft.Build.Tasks
         {
             using (StreamWriter writer = FileUtilities.OpenWrite(fileName, false, Encoding.UTF8))
             {
-                foreach (LiveObjectResource entry in reader.resources)
+                foreach (IResource resource in reader.resources)
                 {
-                    String key = entry.Name;
-                    Object v = entry.Value;
+                    LiveObjectResource entry = resource as LiveObjectResource;
+
+                    String key = entry?.Name;
+                    Object v = entry?.Value;
                     String value = v as String;
                     if (value == null)
                     {
-                        _logger.LogErrorWithCodeFromResources(null, fileName, 0, 0, 0, 0, "GenerateResource.OnlyStringsSupported", key, v.GetType().FullName);
+                        _logger.LogErrorWithCodeFromResources(null, fileName, 0, 0, 0, 0, "GenerateResource.OnlyStringsSupported", key, v?.GetType().FullName);
                     }
                     else
                     {
