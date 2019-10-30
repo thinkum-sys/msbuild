@@ -71,7 +71,7 @@ artifacts_dir="$RepoRoot/artifacts"
 Stage1Dir="$RepoRoot/stage1"
 
 mono_msbuild_dir="$artifacts_dir/mono-msbuild"
-msbuild_download_url="https://github.com/mono/msbuild/releases/download/0.07/mono_msbuild_xplat-master-8f608e49.zip"
+msbuild_download_url="https://github.com/mono/msbuild/releases/download/0.08/mono_msbuild_6.4.0.208.zip"
 msbuild_zip="$artifacts_dir/msbuild.zip"
 
 if [ $host_type = "mono" ] ; then
