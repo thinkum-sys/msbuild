@@ -7,7 +7,7 @@ run_tests="--test"
 run_restore="--restore"
 properties=
 extra_properties=
-use_system_mono=true
+use_system_mono=false
 
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
