@@ -7,17 +7,17 @@
     </Dependency>
   </ToolsetDependencies>
   <ProductDependencies>
-    <Dependency Name="Microsoft.NET.Sdk" Version="3.1.100-preview1.19506.1">
+    <Dependency Name="Microsoft.NET.Sdk" Version="3.1.100-preview2.19528.2">
       <Uri>https://github.com/dotnet/sdk</Uri>
-      <Sha>357126710492d620198a60ee340ebeca9070f133</Sha>
+      <Sha>334812443d8bb11afa51a7efd2f8de83e321e6e1</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.NET.Sdk.Razor" Version="3.1.0-preview2.19518.7">
+    <Dependency Name="Microsoft.NET.Sdk.Razor" Version="3.1.0-preview2.19528.1">
       <Uri>https://github.com/aspnet/AspNetCore-Tooling</Uri>
-      <Sha>c034007a2d17e04decd619d875307392656ae94f</Sha>
+      <Sha>d273a0f4ccfd17a50b490492929bb3617ca73c32</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.NET.Sdk.Web" Version="3.1.100-preview2.19521.2">
+    <Dependency Name="Microsoft.NET.Sdk.Web" Version="3.1.100-preview2.19529.1">
       <Uri>https://github.com/aspnet/websdk</Uri>
-      <Sha>b79adac75df36d7e1adcacb43e09cea24b765aca</Sha>
+      <Sha>982cc536ce2b3560a13ba87c7406514fd16b825d</Sha>
     </Dependency>
     <Dependency Name="ILLink.Tasks" Version="0.1.6-prerelease.19380.1">
       <Uri>https://github.com/mono/linker</Uri>
@@ -27,13 +27,13 @@
       <Uri>https://github.com/dotnet/core-setup</Uri>
       <Sha>f830769364b45286b638a57176d4a7997dbc5237</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.DotNet.Cli.Runtime" Version="3.1.100-preview2.19521.2">
+    <Dependency Name="Microsoft.DotNet.Cli.Runtime" Version="3.1.100-preview2.19529.1">
       <Uri>https://github.com/dotnet/cli</Uri>
-      <Sha>08f2a44fd1a2ca4363b656c730123370f4f91942</Sha>
+      <Sha>23212e12c98ce4af8f07922c9ef6a20b23f236ea</Sha>
     </Dependency>
-    <Dependency Name="NuGet.Build.Tasks" Version="5.3.0-rtm.6251">
+    <Dependency Name="NuGet.Build.Tasks" Version="5.4.0-preview.3.6271">
       <Uri>https://github.com/NuGet/NuGet.Client</Uri>
-      <Sha>b75150f2f4127a77a166c9552845e86fb24a3282</Sha>
+      <Sha>c1f6915918b82c096bbd666bd9c18528f1f70630</Sha>
     </Dependency>
   </ProductDependencies>
 </Dependencies>
