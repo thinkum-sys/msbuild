@@ -14,19 +14,13 @@ using Microsoft.Build.Construction;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Execution;
 using Microsoft.Build.Framework;
-using Microsoft.Build.Experimental.Graph;
+using Microsoft.Build.Graph;
 using Microsoft.Build.Logging;
 using Microsoft.Build.Shared;
 using Microsoft.Build.Shared.FileSystem;
 using Shouldly;
 using Xunit;
 using Xunit.Abstractions;
-
-// Microsoft.Build.Tasks has MSBuildConstants compiled into it under a different namespace otherwise
-// there are collisions with the one compiled into Microsoft.Build.Framework
-#if MICROSOFT_BUILD_TASKS_UNITTESTS
-using MSBuildConstants = Microsoft.Build.Tasks.MSBuildConstants;
-#endif
 
 namespace Microsoft.Build.UnitTests
 {
@@ -442,12 +436,10 @@ namespace Microsoft.Build.UnitTests
             if (expected == null)
             {
                 Assert.Null(actual); // "Expected a null array"
-            }
-            else
-            {
-                Assert.NotNull(actual); // "Result should be non-null."
+                return;
             }
 
+            Assert.NotNull(actual); // "Result should be non-null."
             Assert.Equal(expected.Length, actual.Length); // "Expected array length of <" + expected.Length + "> but was <" + actual.Length + ">.");
 
             // Now that we've verified they're both non-null and of the same length, compare each item in the array.
