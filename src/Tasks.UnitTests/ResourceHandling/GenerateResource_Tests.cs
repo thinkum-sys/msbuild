@@ -222,7 +222,7 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests.InProc
         /// <summary>
         ///  Resources to ResX
         /// </summary>
-#if FEATURE_RESX_RESOURCE_READER
+#if FEATURE_RESXREADER_LIVEDESERIALIZATION
         [Fact]
 #else
         [Fact (Skip = "ResGen.exe not supported on .NET Core MSBuild")]
@@ -269,7 +269,7 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests.InProc
         /// <summary>
         ///  Resources to Text
         /// </summary>
-#if FEATURE_RESX_RESOURCE_READER
+#if FEATURE_RESXREADER_LIVEDESERIALIZATION
         [Fact]
 #else
         [Fact(Skip = "ResGen.exe not supported on .NET Core MSBuild")]
@@ -898,7 +898,7 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests.InProc
         /// <summary>
         ///  Text to ResX
         /// </summary>
-#if FEATURE_RESX_RESOURCE_READER
+#if FEATURE_RESXREADER_LIVEDESERIALIZATION
         [Fact]
 #else
         [Fact(Skip = "Writing to XML not supported on .net core")]
@@ -930,7 +930,7 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests.InProc
         /// <summary>
         ///  Round trip from resx to resources to resx with the same blobs
         /// </summary>
-#if FEATURE_RESX_RESOURCE_READER
+#if FEATURE_RESXREADER_LIVEDESERIALIZATION
         [Fact]
 #else
         [Fact(Skip = "ResGen.exe not supported on.NET Core MSBuild")]
@@ -976,7 +976,7 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests.InProc
         /// <summary>
         ///  Round trip from text to resources to text with the same blobs
         /// </summary>
-#if FEATURE_RESX_RESOURCE_READER
+#if FEATURE_RESXREADER_LIVEDESERIALIZATION
         [Fact]
 #else
         [Fact(Skip = "ResGen.exe not supported on.NET Core MSBuild")]
@@ -1713,11 +1713,7 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests.InProc
         /// <summary>
         ///  Non-string resource with text output
         /// </summary>
-#if RUNTIME_TYPE_NETCORE
-        [Fact (Skip = "https://github.com/Microsoft/msbuild/issues/308")]
-#else
         [Fact]
-#endif
         [Trait("Category", "mono-osx-failing")] // libgdiplus not found
         public void UnsupportedTextType()
         {
@@ -1777,11 +1773,8 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests.InProc
         /// <summary>
         ///  Cause failures in ResourceReader
         /// </summary>
-#if RUNTIME_TYPE_NETCORE
-        [Fact (Skip = "https://github.com/Microsoft/msbuild/issues/308")]
-#else
         [Fact]
-#endif
+        [SkipOnTargetFramework(TargetFrameworkMonikers.Netcoreapp, ".NET Core MSBuild doesn't try to read binary input resources")]
         public void FailedResourceReader()
         {
             GenerateResource t = Utilities.CreateTask(_output);
@@ -1806,6 +1799,28 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests.InProc
             File.Delete(t.Sources[0].ItemSpec);
             foreach (ITaskItem item in t.FilesWritten)
                 File.Delete(item.ItemSpec);
+        }
+
+        [Theory]
+        [InlineData(".resources")]
+        [InlineData(".dll")]
+        [SkipOnTargetFramework(TargetFrameworkMonikers.NetFramework, "This error is .NET Core only")]
+        public void ResourceReaderRejectsNonCoreCompatFormats(string inputExtension)
+        {
+            using var env = TestEnvironment.Create(_output);
+
+            GenerateResource t = Utilities.CreateTask(_output);
+            t.StateFile = new TaskItem(env.GetTempFile(".cache").Path);
+
+            // file contents aren't required since the extension is checked first
+            var resourcesFile = env.CreateFile(inputExtension).Path;
+
+            t.Sources = new ITaskItem[] { new TaskItem(resourcesFile) };
+            t.OutputResources = new ITaskItem[] { new TaskItem(env.GetTempFile(".resources").Path) };
+
+            t.Execute().ShouldBeFalse();
+
+            Utilities.AssertLogContains(t, "MSB3824");
         }
 
         /// <summary>
@@ -1845,11 +1860,9 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests.InProc
         /// <summary>
         /// Reference passed in that can't be loaded should error
         /// </summary>
-#if RUNTIME_TYPE_NETCORE
-        [Fact (Skip = "https://github.com/Microsoft/msbuild/issues/308")]
-#else
         [Fact]
-#endif
+        [SkipOnTargetFramework(TargetFrameworkMonikers.Netcoreapp,
+            reason: ".NET Core MSBuild doesn't load refs so it pushes this failure to runtime")]
         public void InvalidReference()
         {
             string txtFile = null;
@@ -3774,7 +3787,7 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests
         /// <param name="useType">Indicates whether to include an enum to test type-specific resource encoding with assembly references</param>
         /// <param name="linkedBitmap">The name of a linked-in bitmap.  use 'null' for no bitmap.</param>
         /// <returns>The name of the resx file</returns>
-        public static string WriteTestResX(bool useType, string linkedBitmap, string extraToken, string resxFileToWrite = null)
+        public static string WriteTestResX(bool useType, string linkedBitmap, string extraToken, string resxFileToWrite = null, TestEnvironment env = null)
         {
             return WriteTestResX(useType, linkedBitmap, extraToken, useInvalidType: false, resxFileToWrite:resxFileToWrite);
         }
@@ -3785,16 +3798,26 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests
         /// <param name="useType">Indicates whether to include an enum to test type-specific resource encoding with assembly references</param>
         /// <param name="linkedBitmap">The name of a linked-in bitmap.  use 'null' for no bitmap.</param>
         /// <returns>The name of the resx file</returns>
-        public static string WriteTestResX(bool useType, string linkedBitmap, string extraToken, bool useInvalidType, string resxFileToWrite = null)
+        public static string WriteTestResX(bool useType, string linkedBitmap, string extraToken, bool useInvalidType, string resxFileToWrite = null, TestEnvironment env = null)
         {
             string resgenFile = resxFileToWrite;
-            if (string.IsNullOrEmpty(resgenFile))
+
+            string contents = GetTestResXContent(useType, linkedBitmap, extraToken, useInvalidType);
+
+            if (env == null)
             {
-                resgenFile = GetTempFileName(".resx");
-                File.Delete(resgenFile);
+                if (string.IsNullOrEmpty(resgenFile))
+                {
+                        resgenFile = GetTempFileName(".resx");
+                }
+
+                File.WriteAllText(resgenFile, contents);
+            }
+            else
+            {
+                resgenFile = env.CreateFile(".resx", contents).Path;
             }
 
-            File.WriteAllText(resgenFile, GetTestResXContent(useType, linkedBitmap, extraToken, useInvalidType));
             return resgenFile;
         }
 
@@ -3976,7 +3999,7 @@ namespace Microsoft.Build.UnitTests.GenerateResource_Tests
             // All MSBuilds should be able to use the new resource codepaths
             yield return new object[] { true };
 
-#if FEATURE_RESX_RESOURCE_READER
+#if FEATURE_RESXREADER_LIVEDESERIALIZATION
             // But the old get-live-objects codepath is supported only on full framework.
             yield return new object[] { false };
 #endif

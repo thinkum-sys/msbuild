@@ -504,6 +504,7 @@
     <Compile Include="Warning.cs">
       <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
+    <Compile Include="XslTransformation.cs" />
     <Compile Include="AssignCulture.cs" />
     <Compile Include="Culture.cs" />
     <Compile Include="CultureInfoCache.cs" />
@@ -656,7 +657,6 @@
       <ExcludeFromStyleCop>true</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="WinMDExp.cs" />
-    <Compile Include="XslTransformation.cs" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">
     <Compile Include="XamlTaskFactory\CommandLineGenerator.cs" />
@@ -764,6 +764,9 @@
     <Content Include="Microsoft.Common.tasks">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Microsoft.NET.props">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Microsoft.NETFramework.CurrentVersion.props">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -845,6 +848,9 @@
     <DataFile Include="Microsoft.NETFramework.targets" />
     <DataFile Include="Microsoft.NETFramework.CurrentVersion.targets" />
     <DataFile Include="Microsoft.NETFramework.props">
+      <SubType>Designer</SubType>
+    </DataFile>
+    <DataFile Include="Microsoft.NET.props">
       <SubType>Designer</SubType>
     </DataFile>
     <DataFile Include="Microsoft.NETFramework.CurrentVersion.props">

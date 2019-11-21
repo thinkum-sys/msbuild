@@ -910,8 +910,7 @@
     <comment>{StrBegin="MSB3554: "}</comment>
   </data>
   <data name="GenerateResource.CorruptOutput">
-    <value>MSB3555: Output file "{0}" is possibly corrupt.</value>
-    <comment>{StrBegin="MSB3555: "}</comment>
+    <value>Output file "{0}" is possibly corrupt and will be deleted and recreated.</value>
   </data>
   <data name="GenerateResource.OnlyStringsSupported">
     <value>MSB3556: Only strings can be written to a .txt file, resource "{0}" is type {1}.</value>
@@ -1130,6 +1129,10 @@
   <data name="GenerateResource.PreserializedResourcesRequiresProperty">
     <value>MSB3823: Non-string resources require the property GenerateResourceUsePreserializedResources to be set to true.</value>
     <comment>{StrBegin="MSB3823: "}</comment>
+  </data>
+  <data name="GenerateResource.CoreSupportsLimitedScenarios">
+    <value>MSB3824: In order to build with .NET Core, resource inputs must be in .txt or .resx format.</value>
+    <comment>{StrBegin="MSB3824: "}</comment>
   </data>
 
 
@@ -2131,8 +2134,7 @@
     <comment>{StrBegin="MSB3492: "}</comment>
   </data>
   <data name="WriteLinesToFile.SkippingUnchangedFile">
-    <value>MSB3493: Skipping write to file "{0}" because content would not change.</value>
-    <comment>{StrBegin="MSB3493: "}</comment>
+    <value>Skipping write to file "{0}" because content would not change.</value>
   </data>
   <!--
         The GetReferenceAssemblyPaths message bucket is: MSB3642 - MSB3646.
@@ -2263,6 +2265,10 @@
   </data>
   <data name="XslTransform.UseTrustedSettings" xml:space="preserve">
     <value>The usage of the document() method and embedded scripts is prohibited by default, due to risks of foreign code execution.  If "{0}" is a trusted source that requires those constructs, please set the "UseTrustedSettings" parameter to "true" to allow their execution.</value>
+  </data>
+    <data name="XslTransform.PrecompiledXsltError" xml:space="preserve">
+    <value>MSB3705: XslCompiledDllPath is not supported when building with .NET Core.</value>
+    <comment>{StrBegin="MSB3705: "}</comment>
   </data>
 
 
@@ -2907,6 +2913,7 @@
 
         The following codes are not longer used but have shipped so should not be reused:
             MSB3109
+            MSB3493
 
 
         The message spec is here:

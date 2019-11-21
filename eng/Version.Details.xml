@@ -1,47 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Dependencies>
   <ToolsetDependencies>
-    <Dependency Name="Microsoft.DotNet.Arcade.Sdk" Version="1.0.0-beta.19461.7">
+    <Dependency Name="Microsoft.DotNet.Arcade.Sdk" Version="1.0.0-beta.19564.3">
       <Uri>https://github.com/dotnet/arcade</Uri>
-      <Sha>8eb29ba860a3cfcfe68f9a8256caa7efc1f1aaba</Sha>
+      <Sha>2485d69f4aebb147ab4ec1755555ffa24a3c6b1b</Sha>
     </Dependency>
   </ToolsetDependencies>
   <ProductDependencies>
-    <Dependency Name="System.Resources.Extensions" Version="4.6.0-rc2.19458.3">
-      <Uri>https://github.com/dotnet/corefx</Uri>
-      <Sha>173d70b99a5dbb3ff9298a6e2e9c7f7e7b56dd7c</Sha>
-    </Dependency>
-    <Dependency Name="Microsoft.NET.Sdk" Version="3.1.100-preview1.19463.2">
+    <Dependency Name="Microsoft.NET.Sdk" Version="3.1.100-rtm.19568.4">
       <Uri>https://github.com/dotnet/sdk</Uri>
-      <Sha>a19b734139ab62de631c31897b0ffc35f8462f3f</Sha>
+      <Sha>49bbede419cf63e15c70f4b463f80e4811fe3f34</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.NET.Sdk.Razor" Version="3.1.0-preview1.19470.1">
+    <Dependency Name="Microsoft.NET.Sdk.Razor" Version="3.1.0">
       <Uri>https://github.com/aspnet/AspNetCore-Tooling</Uri>
-      <Sha>f283e4a7c0d47054c9a178ff0b29f00e68f307d3</Sha>
+      <Sha>806f68f84d7ecf341811e317810f9aea0e1a862e</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.NET.Sdk.Web" Version="3.0.100-rc2.19461.2">
+    <Dependency Name="Microsoft.NET.Sdk.Web" Version="3.1.100-rtm.19569.1">
       <Uri>https://github.com/aspnet/websdk</Uri>
-      <Sha>9471e9daf66b1e4f03d8b461c3ca0594f742923b</Sha>
+      <Sha>a1041655b92f65e492b7337786f235e0a1a4b731</Sha>
     </Dependency>
     <Dependency Name="ILLink.Tasks" Version="0.1.6-prerelease.19380.1">
       <Uri>https://github.com/mono/linker</Uri>
       <Sha>1127689f262d52ea8ff68ef03d706fa62b3b40a1</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.NETCore.App" Version="3.1.0-preview1.19467.7">
+    <Dependency Name="Microsoft.NETCore.App" Version="3.1.0-preview2.19521.15">
       <Uri>https://github.com/dotnet/core-setup</Uri>
-      <Sha>1e19b8c0d63fe23da7bdd9625ca51c6bd2d1bab2</Sha>
+      <Sha>f830769364b45286b638a57176d4a7997dbc5237</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.DotNet.Cli.Runtime" Version="3.1.100-preview1.19467.5">
+    <Dependency Name="Microsoft.DotNet.Cli.Runtime" Version="3.1.100-rtm.19568.3">
       <Uri>https://github.com/dotnet/cli</Uri>
-      <Sha>11fe23d96c69dad32ab5267d63e572778c5d6de5</Sha>
+      <Sha>cc6bdda9777fff833fe170e3006470e9409521cf</Sha>
     </Dependency>
-    <Dependency Name="Microsoft.Net.Compilers" Version="3.3.1-beta3-19426-02">
-      <Uri>https://github.com/dotnet/roslyn</Uri>
-      <Sha>c82648d8964d1e683f92b7daa91beef2fdc5fb72</Sha>
-    </Dependency>
-    <Dependency Name="NuGet.Build.Tasks" Version="5.3.0-rtm.6192">
+    <Dependency Name="NuGet.Build.Tasks" Version="5.4.0-rtm.6292">
       <Uri>https://github.com/NuGet/NuGet.Client</Uri>
-      <Sha>bb60d6720d24890b8f3e071e70d27ea0f2bef57e</Sha>
+      <Sha>6f8eb3a2e1db6b458451b9cfd2a4f5557769b041</Sha>
     </Dependency>
   </ProductDependencies>
 </Dependencies>
