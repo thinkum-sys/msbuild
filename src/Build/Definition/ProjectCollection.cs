@@ -479,7 +479,11 @@ namespace Microsoft.Build.Evaluation
                     var fullInformationalVersion = typeof(Constants).GetTypeInfo().Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
 
                     // use a truncated version with only 9 digits of SHA
-                    s_assemblyDisplayVersion = fullInformationalVersion.Substring(startIndex: 0, length: fullInformationalVersion.IndexOf('+') + 10);
+                    int plusIndex = fullInformationalVersion.IndexOf('+');
+                    if (plusIndex >= 0)
+                        s_assemblyDisplayVersion = fullInformationalVersion.Substring(startIndex: 0, length: plusIndex + 10);
+                    else
+                        s_assemblyDisplayVersion = fullInformationalVersion;
                 }
 
                 return s_assemblyDisplayVersion;
